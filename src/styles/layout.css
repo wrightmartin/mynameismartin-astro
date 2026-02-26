@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Layout
+   Page-level containers, grids, section spacing, and responsive breakpoints.
+   Matched to the existing mynameismartin.co.uk Squarespace site.
+
+   The existing site uses:
+   - Max page width of ~1400px
+   - 4vw horizontal gutters on desktop, 6vw on mobile
+   - Generous vertical section spacing (4vw–6vw)
+   - A mix of full-width and content-width sections
+   ========================================================================== */
+
+
+/* --- Page Container ---
+   Centres content and applies the site gutters.
+   Used as the main wrapper inside layouts.
+   -------------------------------------------------------------------------- */
+
+.page-container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-inline: var(--gutter-mobile);
+  }
+}
+
+
+/* --- Content Container ---
+   Narrower container for prose and article content.
+   Keeps long-form text at a comfortable reading width.
+   -------------------------------------------------------------------------- */
+
+.content-container {
+  max-width: var(--content-width);
+}
+
+
+/* --- Page Sections ---
+   Vertical spacing between major page blocks.
+   The existing site uses roughly 4vw–6vw between sections,
+   which translates to ~60–96px at common viewport widths.
+   -------------------------------------------------------------------------- */
+
+.page-section {
+  padding-block: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding-block: var(--space-xl);
+  }
+}
+
+/* Divider between adjacent sections */
+.page-section + .page-section {
+  border-top: 1px solid var(--colour-border);
+}
+
+
+/* --- Card Grid ---
+   Responsive grid for project cards on the work page.
+   The existing site displays projects in a 2-column grid on desktop,
+   single column on mobile, with consistent gaps.
+   -------------------------------------------------------------------------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    gap: var(--space-xl);
+  }
+}
+
+
+/* --- Two-Column Layout ---
+   A wider primary column alongside a narrower sidebar.
+   Used on pages like the contact page (content + form).
+   -------------------------------------------------------------------------- */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .two-column {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* --- Prose ---
+   Spacing for long-form content: blog posts, about page, project write-ups.
+   Adds vertical rhythm between elements inside an article.
+   -------------------------------------------------------------------------- */
+
+.prose > * + * {
+  margin-top: var(--space-md);
+}
+
+.prose h2 {
+  margin-top: var(--space-2xl);
+}
+
+.prose h3 {
+  margin-top: var(--space-xl);
+}
+
+.prose h4 {
+  margin-top: var(--space-lg);
+}
+
+.prose img {
+  border-radius: 4px;
+  margin-block: var(--space-lg);
+  width: 100%;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+}
+
+.prose li + li {
+  margin-top: var(--space-xs);
+}
+
+.prose blockquote {
+  margin-block: var(--space-xl);
+}
+
+/* Allow full-bleed sections inside prose to escape the max-width constraint */
+.prose .full-bleed {
+  max-width: none;
+}
+
+/* Prevent prose vertical-rhythm rules from adding spacing inside grids */
+.prose .grid-2 > * + *,
+.prose .grid-3 > * + *,
+.prose .media-text > * + * {
+  margin-top: 0;
+}
+
+/* Restore list styles inside prose (reset strips them globally) */
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+/* Figures and captions for images in markdown content */
+.prose figure {
+  margin-block: var(--space-xl);
+}
+
+.prose figure img {
+  margin-block: 0;
+}
+
+.prose figcaption {
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
+  color: var(--colour-text-light);
+  margin-top: var(--space-xs);
+  text-align: center;
+}
+
+
+/* --- White Section ---
+   Some sections on the existing site use a plain white background
+   to create visual contrast against the cream page background.
+   -------------------------------------------------------------------------- */
+
+.section-white {
+  background-color: var(--colour-surface);
+}
+
+
+/* --- Full-Bleed Section ---
+   Breaks out of the page container to span the full viewport width.
+   Useful for hero banners or highlight sections.
+   -------------------------------------------------------------------------- */
+
+.section-full-bleed {
+  width: 100vw;
+  margin-left: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 768px) {
+  .section-full-bleed {
+    margin-left: calc(-1 * var(--gutter-mobile));
+    padding-inline: var(--gutter-mobile);
+  }
+}
+
+
+/* ==========================================================================
+   Inverted (Dark Background) Utility
+   Flips a section to light-on-dark. Apply to any container to get
+   a dark background with white text, links, and borders.
+   Works on the footer, full-bleed sections, or any other block.
+   ========================================================================== */
+
+.inverted,
+.bg-dark {
+  background-color: rgb(10, 39, 43);
+  color: rgb(255, 255, 255);
+}
+
+.inverted h1, .bg-dark h1,
+.inverted h2, .bg-dark h2,
+.inverted h3, .bg-dark h3,
+.inverted h4, .bg-dark h4,
+.inverted h5, .bg-dark h5,
+.inverted h6, .bg-dark h6,
+.inverted p,  .bg-dark p,
+.inverted li, .bg-dark li,
+.inverted span, .bg-dark span,
+.inverted figcaption, .bg-dark figcaption,
+.inverted blockquote, .bg-dark blockquote {
+  color: rgb(255, 255, 255);
+}
+
+.inverted a,
+.bg-dark a {
+  color: rgb(255, 255, 255);
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+
+.inverted a:hover,
+.bg-dark a:hover {
+  text-decoration-color: rgb(255, 255, 255);
+}
+
+.inverted a:active,
+.bg-dark a:active {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Subtler border colour for dividers inside dark sections */
+.inverted hr,    .bg-dark hr,
+.inverted .page-section + .page-section,
+.bg-dark .page-section + .page-section {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* ==========================================================================
+   Case Study Layout Utilities
+   Reusable classes for structuring content inside case study markdown/MDX.
+   Used via raw HTML in markdown like <section class="full-bleed bg-dark">.
+   ========================================================================== */
+
+
+/* --- Grid: Two Columns ---
+   Two equal columns with a consistent gap.
+   Stacks to a single column below 768px.
+   -------------------------------------------------------------------------- */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* --- Grid: Three Columns ---
+   Three equal columns with a consistent gap.
+   Stacks to a single column below 768px.
+   -------------------------------------------------------------------------- */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* --- Media + Text ---
+   Image and text side by side in a 50/50 split.
+   Works with either source order (image first or text first).
+   Stacks to a single column below 768px.
+   -------------------------------------------------------------------------- */
+
+.media-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .media-text {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.media-text img {
+  border-radius: 4px;
+  width: 100%;
+}
+
+
+/* --- Full Bleed (Case Study Content) ---
+   Breaks out of both the .prose max-width and the .page-container
+   gutters to fill the full viewport width. Adds its own padding
+   so inner content stays aligned with the rest of the page.
+
+   Uses the margin-left + 100vw trick to escape any ancestor
+   max-width or padding constraints.
+   -------------------------------------------------------------------------- */
+
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-inline: var(--gutter);
+  padding-block: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+  .full-bleed {
+    padding-inline: var(--gutter-mobile);
+    padding-block: var(--space-xl);
+  }
+}
+
+/* Constrain inner content to the page max-width so it stays aligned */
+.full-bleed > * {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+
+/* --- Background Modifiers ---
+   Combine with .full-bleed to add a background colour.
+   e.g. <section class="full-bleed bg-dark">
+   -------------------------------------------------------------------------- */
+
+.bg-white {
+  background-color: rgb(255, 255, 255);
+}
+
+.bg-sand {
+  background-color: rgb(245, 240, 235);
+}
+
+/* .bg-dark shares rules with .inverted — defined together above. */

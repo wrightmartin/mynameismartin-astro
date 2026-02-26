@@ -1,0 +1,32 @@
+---
+/*
+  ClientLogos Component
+  ---------------------
+  Displays a row of client/organisation logos.
+  Currently uses a placeholder block — swap in the real logo strip
+  image when it's ready.
+*/
+---
+
+<section class="client-logos page-section">
+  <h2 class="client-logos-heading">Organisations I've worked with</h2>
+
+  <img src="/images/client-logos-1.jpg" alt="Logos of various organisations including UK Ministry of Housing, Dropbox, Médecins Sans Frontières, Google, NHS England, and The King's Fund." class="client-logos-image" loading="lazy" />
+  <img src="/images/client-logos-2.jpg" alt="Logos of organisations including National Highways, Recycle, Joseph Rowntree Foundation, University of Oxford, WWF, RNIB, and others." class="client-logos-image" loading="lazy" />
+</section>
+
+<style>
+  /* ==========================================================================
+     Client Logos
+     A simple section with a heading and a row of logos beneath it.
+     ========================================================================== */
+
+  .client-logos-heading {
+    margin-bottom: var(--space-lg);
+  }
+
+  .client-logos-image {
+    width: 100%;
+    display: block;
+  }
+</style>

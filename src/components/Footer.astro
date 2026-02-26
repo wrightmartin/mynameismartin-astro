@@ -1,0 +1,157 @@
+---
+/*
+  Footer Component
+  ----------------
+  Site footer with logo, navigation links, and RSS subscription link.
+  Clean and generously spaced, matching the existing site's appearance.
+*/
+---
+
+<footer class="site-footer inverted">
+  <div class="site-footer-inner">
+
+    <!-- Logo -->
+    <div class="site-footer-logo">
+      <a href="/" aria-label="Home — mynameismartin">
+        <img src="/images/mnim.png.webp" alt="mynameismartin" />
+      </a>
+    </div>
+
+    <!-- Navigation — mirrors the header links -->
+    <nav class="site-footer-nav" aria-label="Footer navigation">
+      <ul class="site-footer-nav-list">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/get-in-touch">Contact me</a></li>
+      </ul>
+    </nav>
+
+    <!-- RSS feed link -->
+    <div class="site-footer-rss">
+      <a href="/blog/rss.xml" class="site-footer-rss-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M4 11a9 9 0 0 1 9 9" />
+          <path d="M4 4a16 16 0 0 1 16 16" />
+          <circle cx="5" cy="19" r="1" />
+        </svg>
+        Subscribe to my RSS feed
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  /* ==========================================================================
+     Site Footer
+     Generous vertical spacing, centred content, clean layout.
+     ========================================================================== */
+
+  .site-footer {
+    margin-top: var(--space-2xl);
+  }
+
+  .site-footer-inner {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding: var(--space-2xl) var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .site-footer-inner {
+      padding: var(--space-xl) var(--gutter-mobile);
+    }
+  }
+
+
+  /* --- Footer Logo ---
+     Slightly smaller than the header logo for visual hierarchy.
+     ------------------------------------------------------------------- */
+
+  .site-footer-logo a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .site-footer-logo img {
+    height: 60px;
+    width: auto;
+    /* Use the standard logo, no inversion */
+  }
+
+  @media (max-width: 768px) {
+    .site-footer-logo img {
+      height: 26px;
+    }
+  }
+
+
+  /* --- Footer Navigation ---
+     Horizontal list of links, same destinations as the header.
+     No underlines by default, blue on hover — matching header style.
+     ------------------------------------------------------------------- */
+
+  .site-footer-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-footer-nav-list a {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer-nav-list a:hover {
+    color: rgb(255, 255, 255);
+  }
+
+
+  /* --- RSS Link ---
+     A text link with a small inline RSS icon.
+     ------------------------------------------------------------------- */
+
+  .site-footer-rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer-rss-link:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  .site-footer-rss-link svg {
+    flex-shrink: 0;
+  }
+</style>

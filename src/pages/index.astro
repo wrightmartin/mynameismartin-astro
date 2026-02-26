@@ -1,17 +1,124 @@
 ---
+/*
+  Home Page
+  ---------
+  The landing page. Composed of distinct sections:
+  1. Hero — heading, services, availability
+  2. Featured projects — top 3 work items marked as featured
+  3. Client logos — organisations worked with
+  4. Blog — 3 most recent posts
+  5. About excerpt — short bio with link to full about page
+*/
 
+import Page from '../layouts/Page.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PostCard from '../components/PostCard.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import { getCollection } from 'astro:content';
+
+/* Fetch featured projects, sorted by order, limited to 3 */
+const allProjects = await getCollection('work');
+const featuredProjects = allProjects
+  .filter((project) => project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+/* Fetch the 3 most recent blog posts */
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Page title="Martin Wright — Designer">
+
+  <!-- 1. Hero -->
+  <Hero />
+
+  <!-- 2. Featured projects -->
+  <section class="page-section">
+    <h2 class="home-section-heading">Featured projects</h2>
+    <div class="card-grid">
+      {featuredProjects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          slug={project.data.slug}
+          subtitle={project.data.subtitle}
+          thumbnail={project.data.thumbnail}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. Client logos -->
+  <ClientLogos />
+
+  <!-- 4. Blog -->
+  <section class="page-section">
+    <h2 class="home-section-heading">Blog</h2>
+    <div class="home-posts">
+      {recentPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          slug={post.data.slug}
+          date={post.data.date}
+          excerpt={post.data.excerpt}
+          category={post.data.category}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- 5. About excerpt -->
+  <section class="page-section home-about">
+    <p>I'm a designer with twenty years' extensive and celebrated experience designing websites and services for clients including central and local government, healthcare, charity, and the private sector.</p>
+    <a href="/about" class="home-about-link">More about me…</a>
+  </section>
+
+</Page>
+
+<style>
+  /* ==========================================================================
+     Homepage-specific Styles
+     Scoped to the index page. General component styles live in components.css.
+     ========================================================================== */
+
+
+  /* --- Section headings ---
+     Consistent heading treatment for each homepage section.
+     Uses the heading font with generous bottom margin.
+     ---------------------------------------------------------------------- */
+
+  .home-section-heading {
+    margin-bottom: var(--space-xl);
+  }
+
+
+  /* --- Blog post list ---
+     Posts stack vertically. The PostCard component handles individual
+     card styling (borders, spacing) via classes in components.css.
+     ---------------------------------------------------------------------- */
+
+  .home-posts {
+    max-width: var(--content-width);
+  }
+
+
+  /* --- About excerpt ---
+     A brief paragraph with a link to the full about page.
+     Kept at a comfortable reading width.
+     ---------------------------------------------------------------------- */
+
+  .home-about p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 55ch;
+    margin-bottom: var(--space-md);
+  }
+
+  .home-about-link {
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+  }
+</style>

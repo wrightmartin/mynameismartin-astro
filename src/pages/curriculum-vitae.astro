@@ -1,0 +1,77 @@
+---
+/*
+  Curriculum Vitae Page
+  ---------------------
+  Full detailed CV. Uses the CVTimeline component for the career history
+  and has placeholder sections for skills, education, and interests.
+  Paste the real content during migration.
+*/
+
+import Page from '../layouts/Page.astro';
+import CVTimeline from '../components/CVTimeline.astro';
+---
+
+<Page title="Curriculum Vitae — Martin Wright">
+
+  <section class="page-section">
+    <div class="page-header">
+      <h1>Curriculum Vitae</h1>
+      <p>Twenty years of designing digital products and services that make a difference.</p>
+    </div>
+  </section>
+
+  <!-- Profile summary -->
+  <section class="page-section">
+    <h2>Profile</h2>
+    <div class="prose cv-prose">
+      <p>A designer with twenty years' extensive and celebrated experience designing websites and services for clients including central and local government, healthcare, charity, and the private sector. Equally comfortable leading teams, running workshops, or getting hands-on with design and code.</p>
+      <p><em>Placeholder — paste the full profile summary here during migration.</em></p>
+    </div>
+  </section>
+
+  <!-- Career history -->
+  <section class="page-section">
+    <h2>Experience</h2>
+    <div class="cv-timeline-wrapper">
+      <CVTimeline showFullCVLink={false} />
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="page-section">
+    <h2>Skills</h2>
+    <div class="prose cv-prose">
+      <p><em>Placeholder — paste the full skills list here during migration.</em></p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="page-section">
+    <h2>Education</h2>
+    <div class="prose cv-prose">
+      <p><em>Placeholder — paste education details here during migration.</em></p>
+    </div>
+  </section>
+
+  <!-- Interests -->
+  <section class="page-section">
+    <h2>Interests</h2>
+    <div class="prose cv-prose">
+      <p><em>Placeholder — paste interests here during migration.</em></p>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  /* Keep CV prose and timeline at a comfortable reading width */
+  .cv-prose {
+    max-width: var(--content-width);
+    margin-top: var(--space-md);
+  }
+
+  .cv-timeline-wrapper {
+    max-width: var(--content-width);
+    margin-top: var(--space-lg);
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+/*
+  Base Layout
+  -----------
+  The HTML shell shared by every page on the site.
+  Handles <head> meta, Google Fonts loading, global CSS imports,
+  and Astro View Transitions.
+*/
+
+import { ViewTransitions } from 'astro:transitions';
+
+import '../styles/global.css';
+import '../styles/typography.css';
+import '../styles/layout.css';
+import '../styles/components.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Design portfolio and blog of Martin Wright.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Page title and description -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- RSS feed discovery -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Blog RSS Feed"
+      href="/blog/rss.xml"
+    />
+
+    <!--
+      Google Fonts
+      Albert Sans — headings (replaces Aktiv Grotesk from the Squarespace site)
+      PT Serif — body text
+      Preconnect first for faster loading, then load the stylesheet.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Astro View Transitions — enables smooth page-to-page animation -->
+    <ViewTransitions />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

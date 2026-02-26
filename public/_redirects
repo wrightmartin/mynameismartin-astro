@@ -1,0 +1,8 @@
+# Redirects for Cloudflare Pages / Netlify
+# Format: from  to  status
+
+/weeknotes/*  /blog/:splat  301
+/weeknotes    /blog         301
+/home         /             301
+/cart         /             301
+/rssfeeds     /blog         301

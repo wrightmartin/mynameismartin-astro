@@ -1,0 +1,48 @@
+---
+/*
+  Blog Listing Page
+  -----------------
+  Shows all blog posts and weeknotes in a single chronological feed,
+  sorted by date (newest first). Each entry is rendered as a PostCard.
+  Blog and weeknote categories are mixed together — a small category
+  label on each card provides a subtle visual indicator.
+*/
+
+import Page from '../../layouts/Page.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sorted = posts.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Page title="Blog — Martin Wright">
+
+  <section class="page-section">
+    <div class="page-header">
+      <h1>Blog</h1>
+    </div>
+
+    <div class="blog-post-list">
+      {sorted.map((post) => (
+        <PostCard
+          title={post.data.title}
+          slug={post.data.slug}
+          date={post.data.date}
+          excerpt={post.data.excerpt}
+          category={post.data.category}
+        />
+      ))}
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  /* Keep the post list at a comfortable reading width */
+  .blog-post-list {
+    max-width: var(--content-width);
+  }
+</style>

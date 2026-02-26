@@ -1,0 +1,246 @@
+---
+/*
+  About Page
+  ----------
+  Personal bio, career backstory, career timeline, client list,
+  and photos.
+*/
+
+import Page from '../layouts/Page.astro';
+import CVTimeline from '../components/CVTimeline.astro';
+---
+
+<Page title="About — Martin Wright">
+
+  <!-- Intro heading and photo placeholder -->
+  <section class="page-section about-intro">
+    <div class="about-intro-content">
+      <h1>Hello, I'm Martin Wright, a friendly designer doing work that matters</h1>
+    </div>
+    <img src="/images/about-portrait.jpg" alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" />
+  </section>
+
+  <!-- Long-form bio -->
+  <section class="page-section">
+    <div class="prose about-prose">
+      <p>I'm an independent designer working at the intersection of design, delivery, and real-world constraints.</p>
+
+      <p>For most of my career I've worked on complex digital services — often in government, civic tech, healthcare, and regulated environments, where clarity, trust, and good judgement matter as much as creativity. I've led design on long-running products, helped teams ship things that actually hold up in production, and spent years working inside organisations where decisions are political, technical, and human all at once.</p>
+
+      <p>Alongside hands-on design, I've led and supported design teams through growth, change, and uncertainty. I've hired and coached designers and managers, shaped ways of working, overseen quality across multiple projects, and worked closely with engineers, delivery leads, and commercial teams to make sure design effort turns into real world change.</p>
+
+      <p>A recurring theme in my work is making hard problems workable. Turning policy into services, messy processes into understandable journeys, and ambitious ideas into things that can be built, run, and improved over time.</p>
+
+      <p>My career in the industry has made me pragmatic, but not cynical. I'm motivated by the belief that society can be made fairer and more humane through sustained, thoughtful design, especially in how we respond to inequality, prejudice, and environmental strain.</p>
+    </div>
+  </section>
+
+  <!-- Decorative section divider -->
+  <img src="/images/blog/hr.png" alt="" class="about-divider-image" aria-hidden="true" />
+
+  <!-- Photo collage -->
+  <section class="page-section">
+    <img src="/images/about-collage.jpg" alt="Collage of three photos: Martin giving a thumbs-up, discussing ideas on a sticky-note board, and taking a selfie outdoors" class="about-photo about-photo-wide" loading="lazy" />
+  </section>
+
+  <!-- Backstory -->
+  <section class="page-section">
+    <div class="prose about-prose">
+      <p>I grew up between Reading and Perth, Western Australia, and ended up back in the UK, now based in Shrewsbury.</p>
+
+      <p>I came into design through the web — hand-coding sites for bands, then studying Computer Science, where I became interested in human–computer interaction and product design. My dissertation explored computer-aided learning and reward systems, but what really stuck was the immediacy of making things and seeing people use them.</p>
+
+      <p>My first significant role was as Web Team Leader at Shropshire Council, where design didn't yet have a seat at the table. We worked in the open, prototyped aggressively, and launched public betas at a time when that was still unusual in local government. That experience shaped my belief that showing work beats arguing for it.</p>
+
+      <p>From there I moved into agency and product work: Torchbox, where I worked with international charities, NGOs, and education institutions and led the design of the University of Oxford website; mySociety, where I spent eight years designing and evolving civic platforms used by millions; and later TPXimpact (formerly Futuregov), where I worked as a design lead and design manager on central and local government programmes, balancing hands-on design with responsibility for people, quality, and delivery.</p>
+
+      <p>As of October 2024, I run Double True, my independent design practice.</p>
+
+      <p>I work with organisations who need experienced, hands-on design — not just ideas, but decisions, trade-offs, and delivery. That might mean leading a proof-of-concept in a legally constrained space, shaping a service vision with multiple stakeholders, or working directly with engineers to get something into production.</p>
+
+      <p>I care about user-centred design deeply, but I'm equally interested in the conditions that allow it to succeed: how teams work, how decisions are made, how risk is handled, and how work survives contact with reality.</p>
+    </div>
+  </section>
+
+  <!-- Decorative section divider -->
+  <img src="/images/blog/hr.png" alt="" class="about-divider-image" aria-hidden="true" />
+
+  <!-- Personal -->
+  <section class="page-section">
+    <div class="prose about-prose">
+      <p>I live in Shrewsbury with my wife, two daughters, and a hyperactive Cocker Spaniel. I like punk rock, the outdoors, and Wes Anderson films. When I'm not working, I'm usually running, riding a bike downhill, or camping somewhere damp but beautiful.</p>
+    </div>
+  </section>
+
+  <!-- Testimonial quote -->
+  <section class="page-section about-quote-section">
+    <blockquote class="about-quote">
+      <p>"You've been a dream to work with, Martin"</p>
+      <footer>
+        <cite>— Happy Colleague</cite>
+      </footer>
+    </blockquote>
+  </section>
+
+  <!-- Career timeline -->
+  <section class="page-section">
+    <h2>Experience</h2>
+    <div class="about-timeline">
+      <CVTimeline />
+    </div>
+  </section>
+
+  <!-- Client list -->
+  <section class="page-section">
+    <h2>Organisations I've worked with</h2>
+    <ul class="about-client-list">
+      <li>NHS</li>
+      <li>Google</li>
+      <li>GOV.UK</li>
+      <li>University of Oxford</li>
+      <li>Dropbox</li>
+      <li>RNIB</li>
+      <li>Médecins Sans Frontières</li>
+      <li>Kings Fund</li>
+      <li>Recycle Now</li>
+      <li>Samsung Football</li>
+      <li>WWF</li>
+    </ul>
+  </section>
+
+</Page>
+
+<style>
+  /* ==========================================================================
+     About Page
+     Page-specific styles for the bio, client list, quote, and photos.
+     ========================================================================== */
+
+
+  /* --- Intro section ---
+     Heading on the left, photo placeholder on the right.
+     ---------------------------------------------------------------------- */
+
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-intro {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+
+  /* --- Photos ---
+     ---------------------------------------------------------------------- */
+
+  .about-photo {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .about-photo-wide {
+    width: 100%;
+  }
+
+
+  /* --- Prose bio ---
+     Constrained to reading width.
+     ---------------------------------------------------------------------- */
+
+  .about-prose {
+    max-width: var(--content-width);
+  }
+
+
+  /* --- Decorative divider image ---
+     ---------------------------------------------------------------------- */
+
+  .about-divider-image {
+    display: block;
+    max-width: 200px;
+    margin: var(--space-2xl) 0;
+  }
+
+
+  /* --- Career timeline ---
+     Contained to reading width for consistency.
+     ---------------------------------------------------------------------- */
+
+  .about-timeline {
+    max-width: var(--content-width);
+    margin-top: var(--space-lg);
+  }
+
+
+  /* --- Client list ---
+     A clean comma-separated list displayed as flowing inline items.
+     ---------------------------------------------------------------------- */
+
+  .about-client-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: var(--content-width);
+  }
+
+  .about-client-list li {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--colour-text);
+  }
+
+  /* Add a separator dot between items */
+  .about-client-list li:not(:last-child)::after {
+    content: ' · ';
+    color: var(--colour-text-light);
+    font-weight: 400;
+    margin-inline: 0.3em;
+  }
+
+
+  /* --- Testimonial quote ---
+     Large, centred quote with attribution beneath.
+     ---------------------------------------------------------------------- */
+
+  .about-quote-section {
+    text-align: center;
+  }
+
+  .about-quote {
+    border-left: none;
+    padding-left: 0;
+    font-style: normal;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .about-quote p {
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--colour-text);
+    max-width: none;
+  }
+
+  .about-quote footer {
+    margin-top: var(--space-md);
+  }
+
+  .about-quote cite {
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+    font-style: normal;
+    color: var(--colour-text-light);
+  }
+</style>

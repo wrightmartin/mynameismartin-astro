@@ -1,0 +1,33 @@
+---
+/*
+  ProjectCard Component
+  ---------------------
+  Displays a single work project as a linked card.
+  Shows a thumbnail image (or placeholder), project title, and subtitle.
+  Used on the homepage featured projects section and the work listing page.
+*/
+
+interface Props {
+  title: string;
+  slug: string;
+  subtitle: string;
+  thumbnail: string;
+}
+
+const { title, slug, subtitle, thumbnail } = Astro.props;
+---
+
+<a href={`/work/${slug}`} class="project-card">
+  <div class="project-card-thumbnail">
+    <img src={thumbnail} alt={title} loading="lazy" />
+  </div>
+  <h3 class="project-card-title">{title}</h3>
+  <p class="project-card-subtitle">{subtitle}</p>
+</a>
+
+<style>
+  .project-card-thumbnail img {
+    width: 100%;
+    display: block;
+  }
+</style>

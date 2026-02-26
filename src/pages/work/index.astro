@@ -1,0 +1,41 @@
+---
+/*
+  Work Listing Page
+  -----------------
+  Displays all portfolio projects in a grid, sorted by their order number.
+  Each project is rendered as a ProjectCard component.
+  A client logos section sits at the bottom.
+*/
+
+import Page from '../../layouts/Page.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('work');
+const sorted = projects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Page title="Selected work — Martin Wright">
+
+  <section class="page-section">
+    <div class="page-header">
+      <h1>Selected work</h1>
+      <p>Projects chosen to show how I design complex products and services under real-world constraints.</p>
+    </div>
+
+    <div class="card-grid">
+      {sorted.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          slug={project.data.slug}
+          subtitle={project.data.subtitle}
+          thumbnail={project.data.thumbnail}
+        />
+      ))}
+    </div>
+  </section>
+
+  <ClientLogos />
+
+</Page>

@@ -1,0 +1,152 @@
+---
+/*
+  Individual Blog Post
+  --------------------
+  Dynamic route that renders a single blog post or weeknote.
+  Displays the date, title, category label (for weeknotes),
+  rendered markdown content, and an author bio at the bottom.
+*/
+
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+/* Format the date as a readable string, e.g. "10 January 2025" */
+const formattedDate = post.data.date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const isWeeknote = post.data.category === 'weeknote';
+---
+
+<Base title={`${post.data.title} — Martin Wright`}>
+  <Header />
+
+  <main class="page-container">
+    <article class="blog-post">
+
+      <!-- Post header: date, category label, title -->
+      <header class="blog-post-header page-section">
+        <time class="blog-post-date" datetime={post.data.date.toISOString()}>
+          {formattedDate}
+        </time>
+        {isWeeknote && (
+          <span class="blog-post-category">Weeknote</span>
+        )}
+        <h1>{post.data.title}</h1>
+      </header>
+
+      <!-- Markdown content -->
+      <div class="blog-post-body page-section">
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+
+      <!-- Author bio -->
+      <footer class="blog-post-author page-section">
+        <p class="blog-post-author-text">
+          <strong>Martin Wright</strong> · Martin is a designer working on complex digital services and products across government, healthcare, charity, and the private sector.
+        </p>
+        <a href="/blog" class="blog-post-back-link">← All posts</a>
+      </footer>
+
+    </article>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  /* ==========================================================================
+     Blog Post Page
+     Styles specific to individual blog post and weeknote pages.
+     ========================================================================== */
+
+
+  /* --- Post Header ---
+     Date and optional category label above the title.
+     ---------------------------------------------------------------------- */
+
+  .blog-post-header {
+    padding-bottom: var(--space-lg);
+  }
+
+  .blog-post-date {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    color: var(--colour-text-light);
+    margin-bottom: var(--space-xs);
+  }
+
+  .blog-post-category {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-text-light);
+    background-color: var(--colour-border);
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin-bottom: var(--space-sm);
+  }
+
+
+  /* --- Post Body ---
+     Constrains the prose content to a comfortable reading width.
+     ---------------------------------------------------------------------- */
+
+  .blog-post-body {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .blog-post-body .prose {
+    max-width: var(--content-width);
+  }
+
+
+  /* --- Author Bio ---
+     A simple text block at the end of the post with a link back to
+     the blog listing.
+     ---------------------------------------------------------------------- */
+
+  .blog-post-author {
+    border-top: 1px solid var(--colour-border);
+  }
+
+  .blog-post-author-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--colour-text-light);
+    max-width: var(--content-width);
+    margin-bottom: var(--space-md);
+  }
+
+  .blog-post-author-text strong {
+    color: var(--colour-text);
+  }
+
+  .blog-post-back-link {
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+  }
+</style>

@@ -1,0 +1,151 @@
+---
+/*
+  Get in Touch Page
+  -----------------
+  Contact information with email link, calendar booking link,
+  and social media links.
+*/
+
+import Page from '../layouts/Page.astro';
+---
+
+<Page title="Contact me — Martin Wright">
+
+  <section class="page-section contact-hero">
+    <h1>Contact me</h1>
+    <p class="contact-intro">Send me an email or book a coffee slot and I'll get back to you within a day or two.</p>
+  </section>
+
+  <!-- Primary contact methods -->
+  <section class="page-section contact-methods">
+    <div class="contact-method">
+      <h2>Send an email</h2>
+      <a href="mailto:hello@mynameismartin.co.uk" class="contact-email-link">
+        hello@mynameismartin.co.uk
+      </a>
+    </div>
+
+    <div class="contact-method">
+      <h2>Book a coffee slot</h2>
+      <p>Pick a time that works for you and we'll have a chat.</p>
+      <a
+        href="https://calendar.google.com/calendar/appointments"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button"
+      >
+        Book a time
+      </a>
+    </div>
+  </section>
+
+  <!-- Social links -->
+  <section class="page-section contact-social">
+    <h2>Find me elsewhere</h2>
+    <ul class="contact-social-list">
+      <li>
+        <a href="https://www.linkedin.com/in/martinwright/" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://bsky.app/" target="_blank" rel="noopener noreferrer">
+          Bluesky
+        </a>
+      </li>
+    </ul>
+    <p class="contact-social-note"><em>Update these links with your actual profile URLs.</em></p>
+  </section>
+
+</Page>
+
+<style>
+  /* ==========================================================================
+     Get in Touch Page
+     Contact methods, email link, calendar booking, and social links.
+     ========================================================================== */
+
+
+  /* --- Intro ---
+     Short introductory text below the heading.
+     ---------------------------------------------------------------------- */
+
+  .contact-intro {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--colour-text-light);
+    max-width: 50ch;
+    margin-top: var(--space-sm);
+  }
+
+
+  /* --- Contact methods ---
+     Two blocks side by side: email and calendar booking.
+     ---------------------------------------------------------------------- */
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 768px) {
+    .contact-methods {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .contact-method h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .contact-method p {
+    color: var(--colour-text-light);
+    margin-bottom: var(--space-md);
+  }
+
+
+  /* --- Email link ---
+     Large, prominent email address that invites clicking.
+     ---------------------------------------------------------------------- */
+
+  .contact-email-link {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    font-weight: 700;
+    word-break: break-all;
+  }
+
+
+  /* --- Social links ---
+     A simple horizontal list of text links.
+     ---------------------------------------------------------------------- */
+
+  .contact-social-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+  }
+
+  .contact-social-list a {
+    font-family: var(--font-heading);
+    font-size: var(--text-h4);
+    font-weight: 600;
+    color: var(--colour-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-social-list a:hover {
+    color: var(--colour-text-light);
+  }
+
+  .contact-social-note {
+    margin-top: var(--space-md);
+    font-size: var(--text-small);
+    color: var(--colour-text-light);
+  }
+</style>

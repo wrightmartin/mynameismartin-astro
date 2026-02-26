@@ -1,0 +1,47 @@
+---
+title: "Mapping is thinking"
+slug: "mapping-is-thinking"
+date: 2025-10-23
+excerpt: "We often treat maps as deliverables - neat, tidy artefacts to show what we’re building. But the value of mapping isn’t in the artefact; the value of..."
+category: "blog"
+featured: false
+---
+
+We often treat maps as deliverables - neat, tidy artefacts to show what we’re building. But the value of mapping isn’t in the artefact; the value of mapping is in getting there. The process of making the map is what helps us think, collaborate and move a problem forwards.
+
+![](/images/blog/Untitled_Artwork-3.jpg)
+
+Take something simple, like a password reset process. It looks straightforward, a few steps, maybe a screen or two. But once you look closely you start to see it hides dozens of small but important questions:
+
+-   How does the password get sent?
+    
+-   What happens if the reset email gets caught in a spam filter? Can the user resend it?
+    
+-   Does the reset link expire? What happens when the user clicks an expired link?
+    
+-   What’s the password policy? Do we allow password reuse? What about length or complexity?
+    
+-   How should the reset message be worded?
+    
+
+By the time the map is completed those questions are answered, and the journey appears simple, but only because the complexity has been worked through.
+
+Recently, while working on account functionality for ecosyste.ms, I spent a morning wrestling in Figma, trying to piece together screens that made sense.
+
+But the more I tried to design, the more I realised how many assumptions were untested and how many decisions hadn’t been made. So I did what I should’ve done earlier: stepped away from the screen, grabbed a Sharpie and some Post-its\*, and started mapping.
+
+Each small map — “change password”, “change photo”, “forgot password” — revealed gaps in our understanding. It surfaced constraints we hadn’t discussed and dependencies we hadn’t agreed. Some were design issues, others were product or technical questions. Attempting to map the journeys helped drive out the missing parts.
+
+When I brought the maps to our product and development leads and we began to discuss them, the conversations changed. We weren’t just talking about UI patterns — we were talking more deeply about the problem we were trying to solve, aligning on logic, constraints, and policy.
+
+In small, co-located teams, this kind of cross-discipline collaboration happens naturally. In remote, or larger ones, it often doesn’t. Design works in isolation; tech makes its own assumptions; product or policy carries its own vision.
+
+Mapping can bring those worlds back together. It gives everyone a shared space to think and a structured way to discuss the problem at hand.
+
+If I’d stayed in Figma, I could’ve produced a beautiful set of screens. But without mapping, I’d have handed something to a developer who’d say “the tech can’t support that,” or a product manager who’d say “that’s not how the product should work.”
+
+Instead, the process of mapping and asking questions at each step of the journey map allowed us to think, discuss and crucially decide together on how the process could work in a way that met the needs of our users, the constraints of the technology and the requirements of the organisation. Saving us from poor assumptions, misunderstanding, and rework.
+
+That’s why, in the end, the map itself doesn’t matter much. Once the work moves on, it will gather digital dust. But the process of mapping — that’s the gold.
+
+\* I didn’t do this, I opened Miro, but that’s not as strong a metaphor

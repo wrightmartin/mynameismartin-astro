@@ -1,0 +1,35 @@
+---
+/*
+  PostCard Component
+  ------------------
+  Displays a single blog post as a linked card.
+  Shows the date, title (as a link), and excerpt.
+  Used on the homepage blog section and the blog listing page.
+*/
+
+interface Props {
+  title: string;
+  slug: string;
+  date: Date;
+  excerpt: string;
+  category: string;
+}
+
+const { title, slug, date, excerpt, category } = Astro.props;
+
+/* Format the date as a readable string, e.g. "10 January 2025" */
+const formattedDate = date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<a href={`/blog/${slug}`} class="post-card">
+  <p class="post-card-category">{category}</p>
+  <time class="post-card-date" datetime={date.toISOString()}>
+    {formattedDate}
+  </time>
+  <h3 class="post-card-title">{title}</h3>
+  <p class="post-card-excerpt">{excerpt}</p>
+</a>
