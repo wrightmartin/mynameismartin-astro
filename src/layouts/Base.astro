@@ -85,14 +85,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
     <!--
       Google Fonts
-      Albert Sans — headings (replaces Aktiv Grotesk from the Squarespace site)
+      Albert Sans — headings
       PT Serif — body text
       Preconnect first for faster loading, then load the stylesheet.
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
 
@@ -102,5 +102,75 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
   <body>
     <slot />
+      <script>
+      function applyScaledText(root = document) {
+        const wraps = root.querySelectorAll("[data-scaled-text]");
+
+        wraps.forEach((wrap) => {
+          const lines = Array.from(wrap.querySelectorAll(".scaled-line"));
+          if (!lines.length) return;
+
+          // Use the wrapping element’s width as the available width
+          const containerWidth = wrap.clientWidth;
+          if (!containerWidth) return;
+
+          // Ensure measurements happen with the actual font loaded
+          const baseSize = parseFloat(getComputedStyle(wrap).fontSize) || 16;
+
+          // Reset line sizes to the base so we can measure their natural widths
+          lines.forEach((line) => (line.style.fontSize = `${baseSize}px`));
+
+          const widths = lines.map((line) => line.getBoundingClientRect().width);
+          const longest = Math.max(...widths);
+          if (!longest) return;
+
+          // Stage 1: compute the max “group” font-size so the longest line fits
+          const groupScale = containerWidth / longest;
+
+          // Clamp the overall scale so it doesn’t go silly on tiny/huge screens
+          const MIN_GROUP_SCALE = 0.85;
+          const MAX_GROUP_SCALE = 1.6;
+          const clampedGroupScale = Math.max(MIN_GROUP_SCALE, Math.min(MAX_GROUP_SCALE, groupScale));
+
+          const groupBase = baseSize * clampedGroupScale;
+
+          // Stage 2: scale each line’s font-size so it fits the container width
+          // (shorter lines become larger; still only font-size changes)
+          const MIN_LINE_SCALE = 0.9;
+          const MAX_LINE_SCALE = 2.2;
+
+          lines.forEach((line, i) => {
+            const w = widths[i];
+            if (!w) return;
+
+            let lineScale = containerWidth / w;
+            lineScale = Math.max(MIN_LINE_SCALE, Math.min(MAX_LINE_SCALE, lineScale));
+
+            // Important: anchor the per-line scaling to the same group base
+            line.style.fontSize = `${groupBase * (lineScale / clampedGroupScale)}px`;
+          });
+        });
+      }
+
+      async function runScaledText() {
+        // wait for webfonts so widths are accurate
+        if (document.fonts?.ready) {
+          try { await document.fonts.ready; } catch {}
+        }
+        applyScaledText(document);
+      }
+
+      window.addEventListener("load", runScaledText);
+
+      // Resize (throttled)
+      let rt;
+      window.addEventListener("resize", () => {
+        clearTimeout(rt);
+        rt = setTimeout(runScaledText, 100);
+      });
+
+      // Astro view transitions
+      document.addEventListener("astro:after-swap", runScaledText);
+    </script>
   </body>
 </html>

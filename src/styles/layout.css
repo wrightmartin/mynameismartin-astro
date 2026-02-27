@@ -55,12 +55,6 @@
   }
 }
 
-/* Divider between adjacent sections */
-.page-section + .page-section {
-  border-top: 1px solid var(--colour-border);
-}
-
-
 /* --- Card Grid ---
    Responsive grid for project cards on the work page.
    The existing site displays projects in a 2-column grid on desktop,
@@ -109,7 +103,6 @@
    Spacing for long-form content: blog posts, about page, project write-ups.
    Adds vertical rhythm between elements inside an article.
    -------------------------------------------------------------------------- */
-
 .prose > * + * {
   margin-top: var(--space-md);
 }
@@ -304,6 +297,31 @@
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* --- Grid: Four Columns ---
+   Four equal columns with a consistent gap.
+   Stacks to a single column below 768px.
+   -------------------------------------------------------------------------- */
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Grid column span utilities */
+@media (min-width: 768px) {
+  .span-1 { grid-column: span 1; }
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+  .span-4 { grid-column: span 4; }
 }
 
 

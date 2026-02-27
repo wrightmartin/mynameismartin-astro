@@ -8,25 +8,26 @@
 
 import Page from '../layouts/Page.astro';
 import CVTimeline from '../components/CVTimeline.astro';
+import ClientLogos from '../components/ClientLogos.astro';
 ---
 
 <Page title="About" description="Twenty years designing websites and services for government, healthcare, charity, and the private sector.">
 
   <!-- Intro heading and photo placeholder -->
-  <div class="full-bleed bg-white">
-  <section class="page-section about-intro">
+
+   <section class="full-bleed bg-white page-section about-intro">
     <div class="about-intro-content">
       <h1>Hello, I'm Martin Wright, a friendly designer doing work that matters</h1>
     </div>
     <img src="/images/about-portrait.jpg" alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" />
   </section>
-  </div>
+ 
   <!-- Long-form bio -->
   <section class="page-section ">
     <div class="grid-2">
       <div>
         <div class="prose about-prose">
-          <p>I'm an independent designer working at the intersection of design, delivery, and real-world constraints.</p>
+          <p class="lede">I'm an independent designer working at the intersection of design, delivery, and real-world constraints.</p>
 
           <p>For most of my career I've worked on complex digital services — often in government, civic tech, healthcare, and regulated environments, where clarity, trust, and good judgement matter as much as creativity. I've led design on long-running products, helped teams ship things that actually hold up in production, and spent years working inside organisations where decisions are political, technical, and human all at once.</p>
 
@@ -37,9 +38,9 @@ import CVTimeline from '../components/CVTimeline.astro';
           <p>My career in the industry has made me pragmatic, but not cynical. I'm motivated by the belief that society can be made fairer and more humane through sustained, thoughtful design, especially in how we respond to inequality, prejudice, and environmental strain.</p>
         </div>
       </div>
-      <div>
+      <div class="pl-lg-8">
         <!-- Career timeline -->
-        <h2>Experience</h2>
+        <h2 class="h4">Experience</h2>
         <div class="about-timeline">
           <CVTimeline />
         </div>
@@ -48,7 +49,7 @@ import CVTimeline from '../components/CVTimeline.astro';
   </section>
 
   <!-- Decorative section divider -->
-  <img src="/images/blog/hr.png" alt="" class="about-divider-image" aria-hidden="true" />
+  <hr class="decorative-hr" />
 
   <!-- Photo collage -->
   <section class="page-section">
@@ -75,7 +76,7 @@ import CVTimeline from '../components/CVTimeline.astro';
   </section>
 
   <!-- Decorative section divider -->
-  <img src="/images/blog/hr.png" alt="" class="about-divider-image" aria-hidden="true" />
+  <hr class="decorative-hr" />
 
   <!-- Personal -->
   <section class="page-section">
@@ -95,21 +96,6 @@ import CVTimeline from '../components/CVTimeline.astro';
   </section>
 
   <!-- Client list -->
-  <section class="page-section">
-    <h2>Organisations I've worked with</h2>
-    <ul class="about-client-list">
-      <li>NHS</li>
-      <li>Google</li>
-      <li>GOV.UK</li>
-      <li>University of Oxford</li>
-      <li>Dropbox</li>
-      <li>RNIB</li>
-      <li>Médecins Sans Frontières</li>
-      <li>Kings Fund</li>
-      <li>Recycle Now</li>
-      <li>Samsung Football</li>
-      <li>WWF</li>
-    </ul>
-  </section>
+  <ClientLogos />
 
 </Page>

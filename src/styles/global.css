@@ -115,12 +115,12 @@ fieldset {
   --text-body:  1.125rem;   /* 18px — base body size */
   --text-small: 0.875rem;   /* 14px — captions, dates, meta */
   --text-xs:    0.75rem;    /* 12px — category labels */
-  --text-h1:    3.4375rem;  /* 55px */
-  --text-h2:    2.25rem;    /* 36px */
-  --text-h3:    1.625rem;   /* 26px */
-  --text-h4:    1.25rem;    /* 20px */
-  --text-h5:    1.125rem;   /* 18px */
-  --text-h6:    1rem;       /* 16px */
+  --text-h1: clamp(2.75rem, 4.2vw, 4.5rem); /* 44px → 72px */
+  --text-h2: clamp(2rem,   3.2vw, 3.25rem); /* 32px → 52px */
+  --text-h3: clamp(1.5rem, 2.2vw, 2.25rem); /* 24px → 36px */
+  --text-h4: clamp(1.25rem,1.5vw, 1.625rem);/* 20px → 26px */
+  --text-h5: 1.125rem;                      /* 18px */
+  --text-h6: 1rem;                          /* 16px */
 
   /* --- Spacing Scale ---
      The existing site uses generous vertical spacing between sections
@@ -141,7 +141,7 @@ fieldset {
      We use a slightly narrower content width for prose readability.
   */
   --max-width:       1400px;     /* max page width, matching the existing site */
-  --content-width:   800px;      /* max width for prose / article content */
+  --content-width:   720px;      /* max width for prose / article content */
   --gutter:          4vw;        /* horizontal page padding (matches Squarespace 4vw) */
   --gutter-mobile:   6vw;        /* slightly wider padding on mobile */
 }

@@ -8,7 +8,7 @@ import { glob } from 'astro/loaders';
  * the display position on listing pages (lower numbers appear first).
  */
 const work = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/work' }),
   schema: z.object({
     title:     z.string(),
     slug:      z.string(),

@@ -28,7 +28,6 @@
   font-size: var(--text-body);
 }
 
-
 /* ==========================================================================
    About Page
    ========================================================================== */
@@ -36,19 +35,18 @@
 .about-intro {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-xl);
+  gap: var(--space-l);
   align-items: center;
 }
 
 @media (min-width: 768px) {
   .about-intro {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
   }
 }
 
 .about-photo {
   width: 100%;
-  border-radius: 4px;
 }
 
 .about-photo-wide {
@@ -57,12 +55,6 @@
 
 .about-prose {
   max-width: var(--content-width);
-}
-
-.about-divider-image {
-  display: block;
-  max-width: 200px;
-  margin: var(--space-2xl) 0;
 }
 
 .about-timeline {
@@ -356,6 +348,8 @@
 
 .case-study-header {
   padding-bottom: var(--space-lg);
+  text-align: center;
+
 }
 
 .case-study-category {
@@ -372,8 +366,10 @@
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--colour-text-light);
-  max-width: 55ch;
+  max-width: 65ch;
   margin-top: var(--space-sm);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .case-study-meta {

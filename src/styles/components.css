@@ -189,26 +189,7 @@
 
 /* ==========================================================================
    Site Header
-   Sticky header with frosted glass effect on scroll.
    ========================================================================== */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-/*
-  When the page has scrolled, a small script on the <body> adds
-  the [data-scrolled] attribute to <html>. This triggers the
-  frosted background so the header doesn't obscure content beneath it.
-*/
-html[data-scrolled] .site-header {
-  background-color: rgba(245, 240, 235, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
 
 .site-header-inner {
   display: flex;
@@ -533,7 +514,6 @@ html[data-scrolled] .site-header {
    ---------------------------------------------------------------------- */
 
 .hero-content {
-  max-width: 800px;
   margin-bottom: var(--space-xl);
 }
 
@@ -546,6 +526,39 @@ html[data-scrolled] .site-header {
   line-height: 1.6;
   color: var(--colour-text-light);
   max-width: 55ch;
+}
+
+
+.hero-image {
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* --- Hero heading fitted lines --- */
+
+.hero-heading {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.87;
+}
+
+.hero-fit .fitline {
+  display: block;
+  white-space: nowrap;
+  transform-origin: left center;
+  will-change: transform;
+  width: max-content;
+}
+
+/* Squarespace-style scaled lines (font-size only, no stretching) */
+.scaled-text .scaled-line {
+  display: block;
+  white-space: nowrap;
+  width: max-content; /* critical: measure natural text width */
+}
+
+/* Optional: keep the heading from becoming absurdly wide */
+.scaled-text {
+  max-width: 100%;
 }
 
 
@@ -693,4 +706,12 @@ html[data-scrolled] .site-header {
   margin-top: var(--space-lg);
   font-family: var(--font-heading);
   font-size: var(--text-body);
+}
+
+
+/* Captions */
+.captioned-image figcaption {
+  color: var(--colour-text-light);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
 }

@@ -73,29 +73,3 @@ function isActive(href: string): boolean {
 
   </div>
 </header>
-
-<!--
-  Scroll detection
-  A tiny inline script that toggles a data attribute on <html>
-  when the user scrolls past the first few pixels. This lets CSS
-  add the frosted background to the sticky header without any framework.
--->
-<script>
-  function updateScrollState() {
-    if (window.scrollY > 10) {
-      document.documentElement.setAttribute('data-scrolled', '');
-    } else {
-      document.documentElement.removeAttribute('data-scrolled');
-    }
-  }
-
-  /* Run on load and on scroll */
-  updateScrollState();
-  window.addEventListener('scroll', updateScrollState, { passive: true });
-
-  /*
-    Re-attach after Astro View Transitions swap in a new page,
-    since the scroll position resets.
-  */
-  document.addEventListener('astro:after-swap', updateScrollState);
-</script>
