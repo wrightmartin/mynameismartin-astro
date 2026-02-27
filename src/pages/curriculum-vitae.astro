@@ -10,7 +10,7 @@ import Page from '../layouts/Page.astro';
 import CVTimeline from '../components/CVTimeline.astro';
 ---
 
-<Page title="Curriculum Vitae — Martin Wright">
+<Page title="Curriculum Vitae" description="Career history and experience of designer Martin Wright.">
 
   <section class="page-section">
     <div class="page-header">
@@ -110,70 +110,3 @@ import CVTimeline from '../components/CVTimeline.astro';
   </section>
 
 </Page>
-
-<style>
-  .cv-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--colour-text-light);
-    max-width: 50ch;
-    margin-top: var(--space-sm);
-  }
-
-  .cv-prose {
-    max-width: var(--content-width);
-    margin-top: var(--space-md);
-  }
-
-  .cv-role {
-    max-width: var(--content-width);
-    margin-top: var(--space-xl);
-  }
-
-  .cv-role h3 {
-    font-size: var(--text-h4);
-  }
-
-  .cv-dates {
-    font-family: var(--font-heading);
-    font-size: var(--text-small);
-    color: var(--colour-text-light);
-    margin-top: var(--space-2xs);
-  }
-
-  .cv-role > p:not(.cv-dates) {
-    margin-top: var(--space-sm);
-    color: var(--colour-text-light);
-    line-height: 1.7;
-  }
-
-  .cv-role ul {
-    margin-top: var(--space-sm);
-    padding-left: var(--space-lg);
-    color: var(--colour-text-light);
-    line-height: 1.7;
-  }
-
-  .cv-role li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .cv-selected-work {
-    margin-top: var(--space-md);
-    padding-left: var(--space-md);
-    border-left: 2px solid var(--colour-border);
-  }
-
-  .cv-selected-work h4 {
-    font-size: var(--text-small);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--colour-text-light);
-    margin-bottom: var(--space-xs);
-  }
-
-  .cv-selected-work p {
-    line-height: 1.7;
-    color: var(--colour-text-light);
-  }
-</style>

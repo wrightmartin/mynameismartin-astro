@@ -34,7 +34,14 @@ const formattedDate = post.data.date.toLocaleDateString('en-GB', {
 const isWeeknote = post.data.category === 'weeknote';
 ---
 
-<Base title={`${post.data.title} — Martin Wright`}>
+<Base
+  title={post.data.title}
+  description={post.data.excerpt}
+  ogType="article"
+  ogImage={post.data.thumbnail}
+  publishedTime={post.data.date}
+  author="Martin Wright"
+>
   <Header />
 
   <main class="page-container">
@@ -71,82 +78,3 @@ const isWeeknote = post.data.category === 'weeknote';
 
   <Footer />
 </Base>
-
-<style>
-  /* ==========================================================================
-     Blog Post Page
-     Styles specific to individual blog post and weeknote pages.
-     ========================================================================== */
-
-
-  /* --- Post Header ---
-     Date and optional category label above the title.
-     ---------------------------------------------------------------------- */
-
-  .blog-post-header {
-    padding-bottom: var(--space-lg);
-  }
-
-  .blog-post-date {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--text-small);
-    color: var(--colour-text-light);
-    margin-bottom: var(--space-xs);
-  }
-
-  .blog-post-category {
-    display: inline-block;
-    font-family: var(--font-heading);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--colour-text-light);
-    background-color: var(--colour-border);
-    padding: 0.2em 0.6em;
-    border-radius: 3px;
-    margin-bottom: var(--space-sm);
-  }
-
-
-  /* --- Post Body ---
-     Constrains the prose content to a comfortable reading width.
-     ---------------------------------------------------------------------- */
-
-  .blog-post-body {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .blog-post-body .prose {
-    max-width: var(--content-width);
-  }
-
-
-  /* --- Author Bio ---
-     A simple text block at the end of the post with a link back to
-     the blog listing.
-     ---------------------------------------------------------------------- */
-
-  .blog-post-author {
-    border-top: 1px solid var(--colour-border);
-  }
-
-  .blog-post-author-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--colour-text-light);
-    max-width: var(--content-width);
-    margin-bottom: var(--space-md);
-  }
-
-  .blog-post-author-text strong {
-    color: var(--colour-text);
-  }
-
-  .blog-post-back-link {
-    font-family: var(--font-heading);
-    font-size: var(--text-body);
-  }
-</style>

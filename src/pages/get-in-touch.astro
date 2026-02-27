@@ -8,7 +8,7 @@
 import Page from '../layouts/Page.astro';
 ---
 
-<Page title="Contact me — Martin Wright">
+<Page title="Contact me" description="Get in touch to discuss working together.">
 
   <section class="page-section contact-hero">
     <h1>Contact me</h1>
@@ -41,63 +41,3 @@ import Page from '../layouts/Page.astro';
   </section>
 
 </Page>
-
-<style>
-  /* ==========================================================================
-     Get in Touch Page
-     Contact methods, email link, calendar booking, and social links.
-     ========================================================================== */
-
-
-  /* --- Intro ---
-     Short introductory text below the heading.
-     ---------------------------------------------------------------------- */
-
-  .contact-intro {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--colour-text-light);
-    max-width: 50ch;
-    margin-top: var(--space-sm);
-  }
-
-
-  /* --- Email link ---
-     Large, prominent email address that invites clicking.
-     ---------------------------------------------------------------------- */
-
-  .contact-email-link {
-    font-family: var(--font-heading);
-    font-size: var(--text-h3);
-    font-weight: 700;
-    word-break: break-all;
-  }
-
-
-  /* --- Social links ---
-     A simple horizontal list of text links.
-     ---------------------------------------------------------------------- */
-
-  .contact-social-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-lg);
-    margin-top: var(--space-md);
-  }
-
-  .contact-social-list a {
-    font-family: var(--font-heading);
-    font-size: var(--text-h4);
-    font-weight: 600;
-    color: var(--colour-text);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .contact-social-list a:hover {
-    color: var(--colour-text-light);
-  }
-
-</style>

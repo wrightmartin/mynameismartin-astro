@@ -31,7 +31,7 @@ const recentPosts = allPosts
   .slice(0, 3);
 ---
 
-<Page title="Martin Wright — Designer">
+<Page>
 
   <!-- 1. Hero -->
   <Hero />
@@ -77,48 +77,3 @@ const recentPosts = allPosts
   </section>
 
 </Page>
-
-<style>
-  /* ==========================================================================
-     Homepage-specific Styles
-     Scoped to the index page. General component styles live in components.css.
-     ========================================================================== */
-
-
-  /* --- Section headings ---
-     Consistent heading treatment for each homepage section.
-     Uses the heading font with generous bottom margin.
-     ---------------------------------------------------------------------- */
-
-  .home-section-heading {
-    margin-bottom: var(--space-xl);
-  }
-
-
-  /* --- Blog post list ---
-     Posts stack vertically. The PostCard component handles individual
-     card styling (borders, spacing) via classes in components.css.
-     ---------------------------------------------------------------------- */
-
-  .home-posts {
-    max-width: var(--content-width);
-  }
-
-
-  /* --- About excerpt ---
-     A brief paragraph with a link to the full about page.
-     Kept at a comfortable reading width.
-     ---------------------------------------------------------------------- */
-
-  .home-about p {
-    font-size: 1.25rem;
-    line-height: 1.7;
-    max-width: 55ch;
-    margin-bottom: var(--space-md);
-  }
-
-  .home-about-link {
-    font-family: var(--font-heading);
-    font-size: var(--text-body);
-  }
-</style>

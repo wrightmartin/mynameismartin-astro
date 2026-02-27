@@ -1,11 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
 
-  // Site URL — update this when you have a production domain
-  site: 'https://mynameismartin.com',
+  site: 'https://www.mynameismartin.co.uk',
+
+  integrations: [sitemap()],
 
   // Redirect old/legacy routes to their new locations
   redirects: {
