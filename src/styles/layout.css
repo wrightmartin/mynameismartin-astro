@@ -359,10 +359,18 @@
   }
 }
 
-/* Constrain inner content to the page max-width so it stays aligned */
+/* Constrain inner content to the same max-width and padding as
+   .page-container so full-bleed children align with the main grid. */
 .full-bleed > * {
   max-width: var(--max-width);
   margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 768px) {
+  .full-bleed > * {
+    padding-inline: var(--gutter-mobile);
+  }
 }
 
 
