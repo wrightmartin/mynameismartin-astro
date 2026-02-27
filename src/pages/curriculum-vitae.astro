@@ -14,33 +14,91 @@ import CVTimeline from '../components/CVTimeline.astro';
 
   <section class="page-section">
     <div class="page-header">
-      <h1>Curriculum Vitae</h1>
-      <p>Twenty years of designing digital products and services that make a difference.</p>
+      <h1>Martin Wright</h1>
+      <p class="cv-subtitle">Design leader specialising in complex digital products and services</p>
     </div>
   </section>
 
   <!-- Profile summary -->
   <section class="page-section">
-    <h2>Profile</h2>
     <div class="prose cv-prose">
-      <p>Design leader specialising in complex digital products and services. Extensive experience building experience design capability in consultancy and public-sector settings. Has grown and supported teams through rapid change, overseen design quality across multiple engagements, and partnered with delivery leadership to ship real-world services.</p>
-      <p>Remains hands-on on complex, high-risk problems involving policy, regulation, data, and multi-stakeholder delivery.</p>
+      <p>Design leader with deep experience building and leading experience design capability in consultancy and public-sector contexts. I've grown and supported teams through periods of rapid change, overseen design quality and resourcing across multiple concurrent engagements, and partnered closely with delivery and commercial leadership to ship services that work in the real world.</p>
+      <p>Alongside practice leadership, I remain hands-on where it matters — particularly on complex, high-risk problems involving policy, regulation, data, and multi-stakeholder delivery.</p>
     </div>
   </section>
 
-  <!-- Career history -->
+  <!-- Experience -->
   <section class="page-section">
     <h2>Experience</h2>
-    <div class="cv-timeline-wrapper">
-      <CVTimeline showFullCVLink={false} showDescriptions={true} />
+
+    <div class="cv-role">
+      <h3>Double True Ltd · Founder and Design Lead</h3>
+      <p class="cv-dates">October 2024 – Present</p>
+      <p>Independent design practice delivering hands-on product and service design for complex, regulated problem spaces.</p>
+      <ul>
+        <li>Lead end-to-end engagements from discovery through early delivery, combining service design, product thinking, and practical execution</li>
+        <li>Hold full commercial responsibility including scoping, pitching, budgeting, and senior stakeholder management</li>
+        <li>Work directly with engineers, researchers, and delivery leads to ship credible, production-oriented outcomes under real-world constraints</li>
+      </ul>
+      <div class="cv-selected-work">
+        <h4>Selected work</h4>
+        <p><strong>ecosyste.ms</strong> — A platform-wide brand and design system for an open-source sustainability initiative, unifying more than a dozen data-heavy services under a single visual and interaction framework.</p>
+      </div>
     </div>
+
+    <div class="cv-role">
+      <h3>TPXimpact · Lead Design Manager</h3>
+      <p class="cv-dates">September 2021 – October 2024</p>
+      <p>Senior design leader within a large public-sector consultancy.</p>
+      <ul>
+        <li>Built and sustained a cross-functional design community of practice, creating shared standards, peer support, and continuity beyond individual projects</li>
+        <li>Scaled design leadership capability through significant organisational change, growing the design practice from ~35 to 110 designers post-merger</li>
+        <li>Held responsibility for design resourcing across multiple engagements, balancing utilisation, client demand, and individual development</li>
+        <li>Acted as senior design authority across concurrent programmes, accountable for design quality and outcomes</li>
+        <li>Played a leading role in business development and bids, owning design strategy and pitching design-led approaches to central government and local authorities</li>
+        <li>Embedded product leadership</li>
+      </ul>
+      <div class="cv-selected-work">
+        <p><strong>Central Government Funding Service (MHCLG)</strong> — Design lead on a three-year programme bringing a national funding service to Beta. Led service and product design for fund onboarding, defined a long-term product vision in a politically sensitive policy area, and reduced assessor preparation time by 90% and fund onboarding time by 75%.</p>
+      </div>
+    </div>
+
+    <div class="cv-role">
+      <h3>mySociety · Design Lead</h3>
+      <p class="cv-dates">August 2013 – September 2021</p>
+      <ul>
+        <li>Led product design for long-running civic technology platforms used by millions, including TheyWorkForYou, FixMyStreet, and WhatDoTheyKnow</li>
+        <li>Shared responsibility for product direction, prioritisation, and delivery</li>
+        <li>Set standards for usability, accessibility, and content clarity across products handling sensitive civic data</li>
+        <li>Led a full organisational rebrand and rollout across the product suite</li>
+      </ul>
+    </div>
+
+    <div class="cv-role">
+      <h3>Torchbox · Senior Designer</h3>
+      <p class="cv-dates">June 2012 – August 2013</p>
+      <ul>
+        <li>Delivered large-scale digital products for charities and academic institutions</li>
+        <li>Design lead on the University of Oxford website (Higher Education Website of the Year, 2015 & 2016)</li>
+      </ul>
+    </div>
+
+    <div class="cv-role">
+      <h3>Shropshire Council · Web Team Leader</h3>
+      <p class="cv-dates">December 2006 – June 2012</p>
+      <ul>
+        <li>Established design as a core discipline when design capability was rare in local government</li>
+        <li>Led design for all public-facing services, managing a multidisciplinary team through organisational consolidation and platform migration</li>
+      </ul>
+    </div>
+
   </section>
 
   <!-- Education -->
   <section class="page-section">
     <h2>Education</h2>
     <div class="prose cv-prose">
-      <p><strong>2:1 BSc Computer Science</strong> — University of Wales, Aberystwyth</p>
+      <p><strong>2:1 BSc Computer Science</strong> · University of Wales, Aberystwyth</p>
     </div>
   </section>
 
@@ -54,14 +112,68 @@ import CVTimeline from '../components/CVTimeline.astro';
 </Page>
 
 <style>
-  /* Keep CV prose and timeline at a comfortable reading width */
+  .cv-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--colour-text-light);
+    max-width: 50ch;
+    margin-top: var(--space-sm);
+  }
+
   .cv-prose {
     max-width: var(--content-width);
     margin-top: var(--space-md);
   }
 
-  .cv-timeline-wrapper {
+  .cv-role {
     max-width: var(--content-width);
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .cv-role h3 {
+    font-size: var(--text-h4);
+  }
+
+  .cv-dates {
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    color: var(--colour-text-light);
+    margin-top: var(--space-2xs);
+  }
+
+  .cv-role > p:not(.cv-dates) {
+    margin-top: var(--space-sm);
+    color: var(--colour-text-light);
+    line-height: 1.7;
+  }
+
+  .cv-role ul {
+    margin-top: var(--space-sm);
+    padding-left: var(--space-lg);
+    color: var(--colour-text-light);
+    line-height: 1.7;
+  }
+
+  .cv-role li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .cv-selected-work {
+    margin-top: var(--space-md);
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--colour-border);
+  }
+
+  .cv-selected-work h4 {
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--colour-text-light);
+    margin-bottom: var(--space-xs);
+  }
+
+  .cv-selected-work p {
+    line-height: 1.7;
+    color: var(--colour-text-light);
   }
 </style>
