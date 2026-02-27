@@ -1,0 +1,58 @@
+---
+/*
+  404 Page
+  --------
+  Custom not-found page with a friendly tone and helpful links.
+*/
+
+import Page from '../layouts/Page.astro';
+---
+
+<Page title="Page not found — Martin Wright">
+
+  <section class="page-section not-found">
+    <h1>Well, this is awkward</h1>
+    <p>The page you're looking for doesn't exist — it might have been moved, renamed, or it never existed in the first place.</p>
+    <p>Here are some places you <em>can</em> go:</p>
+    <ul class="not-found-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/work">Work</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/get-in-touch">Get in touch</a></li>
+    </ul>
+  </section>
+
+</Page>
+
+<style>
+  .not-found {
+    max-width: var(--content-width);
+    padding-block: var(--space-2xl);
+  }
+
+  .not-found h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .not-found p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--colour-text-light);
+    max-width: 50ch;
+  }
+
+  .not-found-links {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .not-found-links a {
+    font-family: var(--font-heading);
+    font-size: var(--text-h4);
+    font-weight: 600;
+  }
+</style>

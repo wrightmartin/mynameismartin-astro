@@ -2,9 +2,8 @@
 /*
   Curriculum Vitae Page
   ---------------------
-  Full detailed CV. Uses the CVTimeline component for the career history
-  and has placeholder sections for skills, education, and interests.
-  Paste the real content during migration.
+  Full detailed CV with profile summary, career history with descriptions,
+  education, and a note about requesting a tailored version.
 */
 
 import Page from '../layouts/Page.astro';
@@ -24,8 +23,8 @@ import CVTimeline from '../components/CVTimeline.astro';
   <section class="page-section">
     <h2>Profile</h2>
     <div class="prose cv-prose">
-      <p>A designer with twenty years' extensive and celebrated experience designing websites and services for clients including central and local government, healthcare, charity, and the private sector. Equally comfortable leading teams, running workshops, or getting hands-on with design and code.</p>
-      <p><em>Placeholder — paste the full profile summary here during migration.</em></p>
+      <p>Design leader specialising in complex digital products and services. Extensive experience building experience design capability in consultancy and public-sector settings. Has grown and supported teams through rapid change, overseen design quality across multiple engagements, and partnered with delivery leadership to ship real-world services.</p>
+      <p>Remains hands-on on complex, high-risk problems involving policy, regulation, data, and multi-stakeholder delivery.</p>
     </div>
   </section>
 
@@ -33,15 +32,7 @@ import CVTimeline from '../components/CVTimeline.astro';
   <section class="page-section">
     <h2>Experience</h2>
     <div class="cv-timeline-wrapper">
-      <CVTimeline showFullCVLink={false} />
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="page-section">
-    <h2>Skills</h2>
-    <div class="prose cv-prose">
-      <p><em>Placeholder — paste the full skills list here during migration.</em></p>
+      <CVTimeline showFullCVLink={false} showDescriptions={true} />
     </div>
   </section>
 
@@ -49,15 +40,14 @@ import CVTimeline from '../components/CVTimeline.astro';
   <section class="page-section">
     <h2>Education</h2>
     <div class="prose cv-prose">
-      <p><em>Placeholder — paste education details here during migration.</em></p>
+      <p><strong>2:1 BSc Computer Science</strong> — University of Wales, Aberystwyth</p>
     </div>
   </section>
 
-  <!-- Interests -->
+  <!-- Note -->
   <section class="page-section">
-    <h2>Interests</h2>
     <div class="prose cv-prose">
-      <p><em>Placeholder — paste interests here during migration.</em></p>
+      <p>A more detailed, role-specific CV is available on request.</p>
     </div>
   </section>
 

@@ -12,9 +12,10 @@
 
 interface Props {
   showFullCVLink?: boolean;
+  showDescriptions?: boolean;
 }
 
-const { showFullCVLink = true } = Astro.props;
+const { showFullCVLink = true, showDescriptions = false } = Astro.props;
 
 /*
   Career entries, most recent first.
@@ -23,28 +24,33 @@ const { showFullCVLink = true } = Astro.props;
 const entries = [
   {
     company: 'Double True Ltd',
-    role: 'Creative Director',
+    role: 'Founder and Design Lead',
     dates: 'October 2024 – Present',
+    description: 'Independent design practice for regulated problem spaces. Leads end-to-end engagements from discovery through early delivery, combining service design and product thinking. Holds full commercial responsibility including scoping, pitching, budgeting, and senior stakeholder management.',
   },
   {
     company: 'TPXimpact',
     role: 'Lead Design Manager',
     dates: 'September 2021 – October 2024',
+    description: 'Senior design leader in public-sector consultancy. Built cross-functional design community of practice. Scaled design leadership through organizational change, growing practice from ~35 to 110 designers post-merger. Held design resourcing responsibility across multiple engagements.',
   },
   {
     company: 'mySociety',
     role: 'Design Lead',
     dates: 'August 2013 – September 2021',
+    description: 'Led product design for civic technology platforms including TheyWorkForYou, FixMyStreet, and WhatDoTheyKnow. Shared responsibility for product direction, prioritization, and delivery. Set standards for usability, accessibility, and content clarity. Led organizational rebrand rollout.',
   },
   {
     company: 'Torchbox',
     role: 'Senior Designer',
     dates: 'June 2012 – August 2013',
+    description: 'Delivered large-scale digital products for charities and academic institutions. Design lead on University of Oxford website (Higher Education Website of the Year, 2015 & 2016).',
   },
   {
     company: 'Shropshire Council',
     role: 'Web Team Leader',
     dates: 'December 2006 – June 2012',
+    description: 'Established design as core discipline in local government. Led design for all public-facing services, managing multidisciplinary team through organizational consolidation and platform migration.',
   },
 ];
 ---
@@ -56,6 +62,9 @@ const entries = [
         <span class="cv-timeline-company">{entry.company}</span>
         <span class="cv-timeline-role">{entry.role}</span>
         <span class="cv-timeline-dates">{entry.dates}</span>
+        {showDescriptions && entry.description && (
+          <p class="cv-timeline-description">{entry.description}</p>
+        )}
       </li>
     ))}
   </ol>
@@ -121,6 +130,13 @@ const entries = [
     font-size: var(--text-small);
     color: var(--colour-text-light);
     margin-top: var(--space-2xs);
+  }
+
+  .cv-timeline-description {
+    margin-top: var(--space-sm);
+    color: var(--colour-text-light);
+    line-height: 1.6;
+    max-width: 55ch;
   }
 
   .cv-timeline-link {
