@@ -15,13 +15,20 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
-  return posts.map((post) => ({
+  /* Sort by date ascending so index - 1 = older, index + 1 = newer */
+  const sorted = posts.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+  return sorted.map((post, index) => ({
     params: { slug: post.data.slug },
-    props: { post },
+    props: {
+      post,
+      prevPost: index > 0 ? sorted[index - 1] : null,
+      nextPost: index < sorted.length - 1 ? sorted[index + 1] : null,
+    },
   }));
 }
 
-const { post } = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
 
 /* Format the date as a readable string, e.g. "10 January 2025" */
@@ -74,6 +81,32 @@ const isWeeknote = post.data.category === 'weeknote';
       </footer>
 
     </article>
+
+    <!-- Previous / Next post navigation -->
+    {(prevPost || nextPost) && (
+      <nav class="case-study-nav page-section" aria-label="More posts">
+
+        {prevPost ? (
+          <a href={`/blog/${prevPost.data.slug}`} class="case-study-nav-link case-study-nav-prev">
+            <span class="case-study-nav-direction">Previous post</span>
+            <span class="case-study-nav-title">{prevPost.data.title}</span>
+          </a>
+        ) : (
+          <span></span>
+        )}
+
+        {nextPost ? (
+          <a href={`/blog/${nextPost.data.slug}`} class="case-study-nav-link case-study-nav-next">
+            <span class="case-study-nav-direction">Next post</span>
+            <span class="case-study-nav-title">{nextPost.data.title}</span>
+          </a>
+        ) : (
+          <span></span>
+        )}
+
+      </nav>
+    )}
+
   </main>
 
   <Footer />

@@ -13,6 +13,7 @@ const work = defineCollection({
     title:     z.string(),
     slug:      z.string(),
     subtitle:  z.string(),
+    cardTitle: z.string().optional(),
     category:  z.string(),
     role:      z.string().optional(),
     client:    z.string().optional(),

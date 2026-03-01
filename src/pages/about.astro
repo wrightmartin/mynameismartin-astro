@@ -15,11 +15,13 @@ import ClientLogos from '../components/ClientLogos.astro';
 
   <!-- Intro heading and photo placeholder -->
 
-   <section class="full-bleed bg-white page-section about-intro">
-    <div class="about-intro-content">
+   <section class="full-bleed bg-white page-section ">
+   <div class="grid-3 align-items-center">
+    <div class="about-intro-content span-2">
       <h1>Hello, I'm Martin Wright, a friendly designer doing work that matters</h1>
     </div>
     <img src="/images/about-portrait.jpg" alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" />
+    </div>
   </section>
  
   <!-- Long-form bio -->
@@ -93,6 +95,11 @@ import ClientLogos from '../components/ClientLogos.astro';
         <cite>— Happy Colleague</cite>
       </footer>
     </blockquote>
+  </section>
+
+  <!-- Photo -->
+  <section class="page-section">
+    <img src="/images/about-throne.jpg" alt="Martin sitting on a large sculpture of a throne" class="about-photo about-photo-wide" loading="lazy" />
   </section>
 
   <!-- Client list -->

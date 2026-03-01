@@ -32,19 +32,6 @@
    About Page
    ========================================================================== */
 
-.about-intro {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-l);
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .about-intro {
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
 .about-photo {
   width: 100%;
 }

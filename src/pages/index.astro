@@ -42,7 +42,7 @@ const recentPosts = allPosts
     <div class="card-grid">
       {featuredProjects.map((project) => (
         <ProjectCard
-          title={project.data.title}
+          title={project.data.cardTitle || project.data.title}
           slug={project.data.slug}
           subtitle={project.data.subtitle}
           thumbnail={project.data.thumbnail}

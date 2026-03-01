@@ -474,26 +474,30 @@
 }
 
 
-/* --- RSS Link ---
-   A text link with a small inline RSS icon.
+/* --- Social Links ---
+   Row of icon links (LinkedIn, Bluesky, RSS).
    ------------------------------------------------------------------- */
 
-.site-footer-rss-link {
-  display: inline-flex;
+.site-footer-social {
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-heading);
-  font-size: var(--text-small);
+  gap: 1.2rem;
+}
+
+.site-footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.site-footer-rss-link:hover {
+.site-footer-social-link:hover {
   color: rgb(255, 255, 255);
 }
 
-.site-footer-rss-link svg {
+.site-footer-social-link svg {
   flex-shrink: 0;
 }
 
