@@ -148,12 +148,9 @@ li::marker {
    -------------------------------------------------------------------------- */
 
 blockquote {
-  border-left: 3px solid var(--colour-underline);
   padding-left: var(--space-md);
   margin: var(--space-lg) 0;
-  color: var(--colour-text-light);
-  font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.7;
 }
 
