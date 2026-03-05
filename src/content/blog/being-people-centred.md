@@ -9,8 +9,6 @@ featured: false
 
 One year and a bit into my new role at TPXimpact I’ve begun to reflect on how my first senior leadership role is going, and how adopting the people-centred leadership style I first saw in action at mySociety has changed my approach to looking after people at work.
 
-![](/images/blog/hr.png)
-
 Being a people-centred manager means prioritising the well-being and growth of your employees over the short-term productivity and profit of the business. It is a philosophy that recognises and embraces the reality that our employees are humans with unique needs and circumstances, and that creating a safe and supportive workplace that incorporates them can lead to greater long-term outcomes.
 
 People-centred management intentionally forgoes traditional productivity-driven approaches and instead focuses on providing employees with the support and resources they need to succeed. This can include things like flexible work arrangements, adaptations for work that go above and beyond legislative requirements, bold opportunities for professional development, and a focus on mental and physical well-being.

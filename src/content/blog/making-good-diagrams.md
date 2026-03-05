@@ -7,7 +7,7 @@ category: "blog"
 featured: false
 ---
 
-We’re back for a third and final part of my series about diagrams. Here we discuss a couple of quirks to watch out for, how to get started with a diagram and why having a good time making a diagram doesn’t mean you made a good diagram. Here for the first time? Start at [part one](https://www.mynameismartin.co.uk/blog/simple-diagrams-to-sell-ideas).
+We’re back for a third and final part of my series about diagrams. Here we discuss a couple of quirks to watch out for, how to get started with a diagram and why having a good time making a diagram doesn’t mean you made a good diagram. Here for the first time? Start at [part one](/blog/simple-diagrams-to-sell-ideas).
 
 ### **Some quirks to watch out for**
 
@@ -33,7 +33,7 @@ in some visual languages arrowheads types are very important (for example, in th
 <figcaption>Arrowheads that are different mean different things to different people</figcaption>
 </figure>
 
-Deal with both of these quirks by following my tip in part one: [*Test your diagrams*](https://www.mynameismartin.co.uk/blog/simple-diagrams-to-sell-ideas)
+Deal with both of these quirks by following my tip in part one: [*Test your diagrams*](/blog/simple-diagrams-to-sell-ideas)
 
 ### **Don't confuse the good making of a diagram with the making of a good diagram**
 

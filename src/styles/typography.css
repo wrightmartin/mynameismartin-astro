@@ -101,10 +101,14 @@ small {
   color: var(--colour-text-light);
 }
 
+.small {
+  font-size: var(--text-small);
+}
+
+
 .lede {
   font-size: clamp(1.35rem, 1.6vw, 1.5625rem); /* ~22px → 25px */
   line-height: 1.4;
-  font-weight: 450; /* Albert Sans supports intermediate weights */
   letter-spacing: -0.01em;
   max-width: 60ch;
   color: var(--colour-text);
@@ -198,4 +202,10 @@ time {
   font-family: var(--font-heading);
   font-size: var(--text-small);
   color: var(--colour-text-light);
+}
+
+.text-center-narrow {
+  text-align: center;
+  max-width: 67ch;
+  margin-inline: auto;
 }

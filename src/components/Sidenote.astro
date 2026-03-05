@@ -1,0 +1,8 @@
+---
+interface Props {
+  id: string | number;
+}
+
+const { id } = Astro.props;
+---
+<sup class="sidenote-number" id={`ref-${id}`}><a href={`#note-${id}`}>{id}</a></sup><span class="sidenote" id={`note-${id}`} data-note-id={id}><span class="sidenote-label">{id}</span> <slot /></span>

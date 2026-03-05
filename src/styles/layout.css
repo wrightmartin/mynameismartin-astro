@@ -76,6 +76,7 @@
 
 @media (min-width: 1024px) {
   .card-grid {
+     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xl);
   }
 }
@@ -366,27 +367,26 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding-inline: var(--gutter);
   padding-block: var(--space-2xl);
 }
 
 @media (max-width: 768px) {
   .full-bleed {
-    padding-inline: var(--gutter-mobile);
     padding-block: var(--space-xl);
   }
 }
 
-/* Constrain inner content to the same max-width and padding as
-   .page-container so full-bleed children align with the main grid. */
-.full-bleed > * {
+/* Constrains inner content to the same max-width and padding as
+   .page-container so full-bleed children align with the main grid.
+   Wrap full-bleed content in <div class="full-bleed-inner">. */
+.full-bleed-inner {
   max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
 
 @media (max-width: 768px) {
-  .full-bleed > * {
+  .full-bleed-inner {
     padding-inline: var(--gutter-mobile);
   }
 }
@@ -403,6 +403,13 @@
 
 .bg-sand {
   background-color: rgb(245, 240, 235);
+}
+
+.bg-photo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-block: 6rem;  
 }
 
 /* .bg-dark shares rules with .inverted — defined together above. */

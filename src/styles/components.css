@@ -54,7 +54,7 @@
 }
 
 .project-card-thumbnail {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16/10;
   overflow: hidden;
   border-radius: 4px;
   background-color: var(--colour-border);
@@ -75,7 +75,7 @@
 .project-card-title {
   font-family: var(--font-heading);
   font-size: var(--text-h4);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.3;
   margin-bottom: var(--space-2xs);
 }
@@ -101,7 +101,8 @@
   border-bottom: 1px solid var(--colour-border);
 }
 
-.post-card:first-child {
+.home-posts .post-card {
+  border-bottom: 0;
   padding-top: 0;
 }
 
@@ -128,10 +129,6 @@
 }
 
 .post-card-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h3);
-  font-weight: 700;
-  line-height: 1.25;
   margin-bottom: var(--space-xs);
   transition: color 0.2s ease;
 }
@@ -154,8 +151,7 @@
 }
 
 .page-header p {
-  font-size: 1.25rem;
-  color: var(--colour-text-light);
+  font-size: var(--text-body-lg);
   max-width: 50ch;
   margin-top: var(--space-sm);
 }
@@ -401,10 +397,6 @@
    Generous vertical spacing, centred content, clean layout.
    ========================================================================== */
 
-.site-footer {
-  margin-top: var(--space-2xl);
-}
-
 .site-footer-inner {
   max-width: var(--max-width);
   margin-inline: auto;
@@ -526,10 +518,10 @@
 }
 
 .hero-subheading {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: var(--text-h3);
+  line-height: 1.3;
   color: var(--colour-text-light);
-  max-width: 55ch;
+  margin-top: var(--space-lg);
 }
 
 
@@ -551,6 +543,14 @@
   transform-origin: left center;
   will-change: transform;
   width: max-content;
+}
+
+.hero-availability {
+  padding-left: 50px;
+  background-image: url("images/asterix.svg");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  font-weight: 700;
 }
 
 /* Squarespace-style scaled lines (font-size only, no stretching) */
@@ -591,13 +591,13 @@
 @media (min-width: 768px) {
   .hero-services {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-lg);
   }
 }
 
 .hero-service-title {
   font-family: var(--font-heading);
-  font-size: var(--text-h4);
+  font-size: var(--text-h5);
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: var(--space-xs);
@@ -617,7 +617,7 @@
 
 .hero-availability {
   font-family: var(--font-heading);
-  font-size: var(--text-body);
+  font-size: var(--text-h4);
   color: var(--colour-text);
 }
 
@@ -679,8 +679,8 @@
 
 .cv-timeline-company {
   font-family: var(--font-heading);
-  font-size: var(--text-h4);
-  font-weight: 700;
+  font-size: var(--text-h5);
+  font-weight: 800;
   line-height: 1.3;
   color: var(--colour-text);
 }
@@ -718,4 +718,70 @@
   color: var(--colour-text-light);
   font-family: var(--font-mono);
   font-size: var(--text-small);
+}
+
+/* ==========================================================================
+   Marker
+   Red underlines. Wrap a word in <span class="marker">
+   ========================================================================== */
+
+
+.marker {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+
+  /* shared sizing knobs */
+  --m-left:  -0.10em;
+  --m-right: -0.10em;
+  --m-bottom: 0.12em;
+  --m-height: 0.26em;
+  --m-rotate: -1deg;
+
+  /* set per-variant */
+  --m-svg: none;
+  --m-opacity: 0.95;
+}
+
+.marker::after {
+  content:"";
+  position:absolute;
+  left: var(--m-left);
+  right: var(--m-right);
+  bottom: var(--m-bottom);
+  height: var(--m-height);
+  z-index: -1;
+
+  transform: rotate(var(--m-rotate));
+  transform-origin: 50% 50%;
+
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 100% 100%; /* stretches to word */
+  background-image: var(--m-svg);
+
+  opacity: var(--m-opacity);
+  border-radius: 999px; /* hides any edge artefacts */
+}
+
+/* Variant A: flatter top edge, heavier belly */
+.marker--a {
+  --m-left: -0.12em;
+  --m-right: -0.08em;
+  --m-bottom: -0.03em;
+  --m-height: 0.28em;
+  --m-rotate: -1.2deg;
+  --m-opacity: 0.92;
+  --m-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24' preserveAspectRatio='none'%3E%3Cpath d='M3 14 C18 11 35 12 52 13 C71 14 89 15 117 13 L117 21 C90 22 72 21 52 21 C34 20 18 19 3 21 Z' fill='%23ef3b3a'/%3E%3C/svg%3E");
+}
+
+/* Variant B: more wobble + slightly different end behaviour */
+.marker--b {
+  --m-left: -0.08em;
+  --m-right: -0.14em;
+  --m-bottom: -0.04em;
+  --m-height: 0.24em;
+  --m-rotate: -0.4deg;
+  --m-opacity: 0.96;
+  --m-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24' preserveAspectRatio='none'%3E%3Cpath d='M4 13 C22 15 38 10 56 12 C74 14 92 12 116 13 L116 20 C92 19 74 21 56 20 C38 19 22 21 4 19 Z' fill='%23ef3b3a'/%3E%3C/svg%3E");
 }

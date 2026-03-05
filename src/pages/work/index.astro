@@ -18,16 +18,19 @@ const sorted = projects.sort((a, b) => a.data.order - b.data.order);
 
 <Page title="Work" description="Selected projects showing how I design complex products and services under real-world constraints.">
 
-  <section class="page-section">
-    <div class="page-header">
-      <h1>Selected work</h1>
-      <p>Projects chosen to show how I design complex products and services under real-world constraints.</p>
+  <section class="page-section full-bleed bg-white">
+    <div class="full-bleed-inner">
+      <div class="page-header mb-0">
+        <h1>Selected work</h1>
+        <p>Projects chosen to show how I design complex products and services under real-world constraints.</p>
+      </div>
     </div>
-
+  </section>
+  <section class="page-section">
     <div class="card-grid">
       {sorted.map((project) => (
         <ProjectCard
-          title={project.data.title}
+          title={project.data.cardTitle || project.data.title}
           slug={project.data.slug}
           subtitle={project.data.subtitle}
           thumbnail={project.data.thumbnail}

@@ -7,7 +7,7 @@ category: "blog"
 featured: false
 ---
 
-Continuing from my [previous post](https://www.mynameismartin.co.uk/blog/simple-diagrams-to-sell-ideas) about making simple diagrams, here’s a follow up set of tips and information to give you the confidence to present your ideas and knowledge visually.
+Continuing from my [previous post](/blog/simple-diagrams-to-sell-ideas) about making simple diagrams, here’s a follow up set of tips and information to give you the confidence to present your ideas and knowledge visually.
 
 ### **When to make a diagram**
 
@@ -76,4 +76,4 @@ If your diagram will be published with others, collaborate with the other creato
 
 ### End of part two
 
-Next time I’ll present some diagramming quirks and hard-learned lessons to help make sure you don’t repeat my mistakes. [Read it now!](https://www.mynameismartin.co.uk/blog/making-good-diagrams)
+Next time I’ll present some diagramming quirks and hard-learned lessons to help make sure you don’t repeat my mistakes. [Read it now!](/blog/making-good-diagrams)

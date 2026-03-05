@@ -12,14 +12,10 @@
   margin-bottom: var(--space-xl);
 }
 
-.home-posts {
-  max-width: var(--content-width);
-}
-
 .home-about p {
   font-size: 1.25rem;
   line-height: 1.7;
-  max-width: 55ch;
+  max-width: 70ch;
   margin-bottom: var(--space-md);
 }
 
@@ -126,6 +122,10 @@
 .cv-prose {
   max-width: var(--content-width);
   margin-top: var(--space-md);
+}
+
+.cv-prose h2 {
+  margin-top: var(--space-lg);
 }
 
 .cv-role {
@@ -317,6 +317,99 @@
 .blog-post-back-link {
   font-family: var(--font-heading);
   font-size: var(--text-body);
+}
+
+
+/* --- Sidenotes ---
+   Tufte-style margin notes on large screens, footnotes on small screens.
+   -------------------------------------------------------------------------- */
+
+/* Superscript reference number */
+.sidenote-number {
+  font-family: var(--font-heading);
+  font-size: 0.7em;
+  font-weight: 600;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.sidenote-number a {
+  text-decoration: none;
+  color: var(--colour-text-light);
+}
+
+/* Number label inside the margin note */
+.sidenote-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-right: 0.25em;
+  display: block;
+}
+
+/* Inline sidenote — hidden by default, shown in margin on large screens */
+.sidenote {
+  display: none;
+}
+
+/* Footnotes section — visible on small screens, hidden on large */
+.sidenote-footnotes {
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--colour-border);
+  padding-top: var(--space-md);
+}
+
+.sidenote-footnotes ol {
+  padding-left: 1.5em;
+  list-style-type: decimal;
+}
+
+.sidenote-footnotes li {
+  font-size: var(--text-small);
+  color: var(--colour-text-light);
+  line-height: 1.6;
+}
+
+.sidenote-footnotes li + li {
+  margin-top: var(--space-xs);
+}
+
+.sidenote-footnotes li a {
+  color: var(--colour-text-light);
+}
+
+.sidenote-backlink {
+  text-decoration: none;
+  margin-left: 0.25em;
+}
+
+.sidenote-footnotes .sidenote-label {
+  display: none;
+}
+
+/* Large screens: show sidenotes in the right margin */
+@media (min-width: 1024px) {
+  .sidenote {
+    display: block;
+    float: right;
+    clear: right;
+    width: 180px;
+    margin-right: -204px;
+    margin-top: 0.2em;
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-small);
+    color: var(--colour-text);
+    line-height: 1.5;
+    padding-left: var(--space-xs);
+    text-align: left;
+  }
+
+  .sidenote-number a {
+    pointer-events: none;
+  }
+
+  .sidenote-footnotes {
+    display: none;
+  }
 }
 
 

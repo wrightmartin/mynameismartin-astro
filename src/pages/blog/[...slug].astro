@@ -110,4 +110,53 @@ const isWeeknote = post.data.category === 'weeknote';
   </main>
 
   <Footer />
+
+  <!--
+    Sidenote footnote collector.
+    On small screens, sidenotes are hidden inline and shown as numbered
+    footnotes at the bottom of the post. This script clones each sidenote
+    into an ordered list appended to .prose. CSS handles show/hide.
+  -->
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const prose = document.querySelector('.blog-post-body .prose');
+      if (!prose) return;
+
+      const sidenotes = prose.querySelectorAll('.sidenote');
+      if (!sidenotes.length) return;
+
+      // Remove any existing footnotes section (View Transitions may re-run this)
+      const existing = prose.querySelector('.sidenote-footnotes');
+      if (existing) existing.remove();
+
+      const section = document.createElement('section');
+      section.className = 'sidenote-footnotes';
+      section.setAttribute('role', 'doc-endnotes');
+      section.setAttribute('aria-label', 'Footnotes');
+
+      const ol = document.createElement('ol');
+
+      sidenotes.forEach((note) => {
+        const id = note.dataset.noteId;
+        const li = document.createElement('li');
+        li.id = 'note-' + id + '-foot';
+        li.innerHTML = note.innerHTML
+          + ' <a href="#ref-' + id + '" class="sidenote-backlink" aria-label="Back to text">\u21A9</a>';
+        ol.appendChild(li);
+      });
+
+      section.appendChild(ol);
+      prose.appendChild(section);
+
+      // Point the superscript anchor links to the footnotes
+      sidenotes.forEach((note) => {
+        const id = note.dataset.noteId;
+        const ref = document.getElementById('ref-' + id);
+        if (ref) {
+          const link = ref.querySelector('a');
+          if (link) link.href = '#note-' + id + '-foot';
+        }
+      });
+    });
+  </script>
 </Base>

@@ -15,12 +15,14 @@ import ClientLogos from '../components/ClientLogos.astro';
 
   <!-- Intro heading and photo placeholder -->
 
-   <section class="full-bleed bg-white page-section ">
-   <div class="grid-3 align-items-center">
-    <div class="about-intro-content span-2">
-      <h1>Hello, I'm Martin Wright, a friendly designer doing work that matters</h1>
-    </div>
-    <img src="/images/about-portrait.jpg" alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" />
+   <section class="full-bleed bg-white page-section">
+    <div class="full-bleed-inner">
+      <div class="grid-3 align-items-center">
+        <div class="about-intro-content span-2">
+          <h1>Hello, I'm Martin Wright, a <span class="marker marker--a">friendly</span> designer doing work that matters</h1>
+        </div>
+        <img src="/images/about-portrait.jpg" alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" />
+      </div>
     </div>
   </section>
  
@@ -49,38 +51,37 @@ import ClientLogos from '../components/ClientLogos.astro';
       </div>
     </div>
   </section>
-
+  <div class="prose about-prose">
   <!-- Decorative section divider -->
   <hr class="decorative-hr" />
-
-  <!-- Photo collage -->
-  <section class="page-section">
-    <img src="/images/about-collage.jpg" alt="Collage of three photos: Martin giving a thumbs-up, discussing ideas on a sticky-note board, and taking a selfie outdoors" class="about-photo about-photo-wide" loading="lazy" />
-  </section>
-
+  </div>
   <!-- Backstory -->
   <section class="page-section">
-    <div class="prose about-prose">
-      <p>I grew up between Reading and Perth, Western Australia, and ended up back in the UK, now based in Shrewsbury.</p>
+    <div class="grid-2">
+      <div class="prose about-prose">
+        <p>I grew up between Reading and Perth, Western Australia, and ended up back in the UK, now based in Shrewsbury.</p>
 
-      <p>I came into design through the web — hand-coding sites for bands, then studying Computer Science, where I became interested in human–computer interaction and product design. My dissertation explored computer-aided learning and reward systems, but what really stuck was the immediacy of making things and seeing people use them.</p>
+        <p>I came into design through the web — hand-coding sites for bands, then studying Computer Science, where I became interested in human–computer interaction and product design. My dissertation explored computer-aided learning and reward systems, but what really stuck was the immediacy of making things and seeing people use them.</p>
 
-      <p>My first significant role was as Web Team Leader at Shropshire Council, where design didn't yet have a seat at the table. We worked in the open, prototyped aggressively, and launched public betas at a time when that was still unusual in local government. That experience shaped my belief that showing work beats arguing for it.</p>
+        <p>My first significant role was as Web Team Leader at Shropshire Council, where design didn't yet have a seat at the table. We worked in the open, prototyped aggressively, and launched public betas at a time when that was still unusual in local government. That experience shaped my belief that showing work beats arguing for it.</p>
 
-      <p>From there I moved into agency and product work: Torchbox, where I worked with international charities, NGOs, and education institutions and led the design of the University of Oxford website; mySociety, where I spent eight years designing and evolving civic platforms used by millions; and later TPXimpact (formerly Futuregov), where I worked as a design lead and design manager on central and local government programmes, balancing hands-on design with responsibility for people, quality, and delivery.</p>
+        <p>From there I moved into agency and product work: Torchbox, where I worked with international charities, NGOs, and education institutions and led the design of the University of Oxford website; mySociety, where I spent eight years designing and evolving civic platforms used by millions; and later TPXimpact (formerly Futuregov), where I worked as a design lead and design manager on central and local government programmes, balancing hands-on design with responsibility for people, quality, and delivery.</p>
 
-      <p>As of October 2024, I run Double True, my independent design practice.</p>
+        <p>As of October 2024, I run Double True, my independent design practice.</p>
 
-      <p>I work with organisations who need experienced, hands-on design — not just ideas, but decisions, trade-offs, and delivery. That might mean leading a proof-of-concept in a legally constrained space, shaping a service vision with multiple stakeholders, or working directly with engineers to get something into production.</p>
+        <p>I work with organisations who need experienced, hands-on design — not just ideas, but decisions, trade-offs, and delivery. That might mean leading a proof-of-concept in a legally constrained space, shaping a service vision with multiple stakeholders, or working directly with engineers to get something into production.</p>
 
-      <p>I care about user-centred design deeply, but I'm equally interested in the conditions that allow it to succeed: how teams work, how decisions are made, how risk is handled, and how work survives contact with reality.</p>
+        <p>I care about user-centred design deeply, but I'm equally interested in the conditions that allow it to succeed: how teams work, how decisions are made, how risk is handled, and how work survives contact with reality.</p>
+      </div>
+      <img src="/images/about-throne.jpg" alt="Martin sitting on a large sculpture of a throne" class="about-photo pl-lg-8 pr-lg-4" loading="lazy" />
     </div>
   </section>
 
-  <!-- Decorative section divider -->
+  <div class="prose about-prose">
   <hr class="decorative-hr" />
+  </div>
 
-  <!-- Personal -->
+  <!-- Backstory -->
   <section class="page-section">
     <div class="prose about-prose">
       <p>I live in Shrewsbury with my wife, two daughters, and a hyperactive Cocker Spaniel. I like punk rock, the outdoors, and Wes Anderson films. When I'm not working, I'm usually running, riding a bike downhill, or camping somewhere damp but beautiful.</p>
@@ -95,11 +96,6 @@ import ClientLogos from '../components/ClientLogos.astro';
         <cite>— Happy Colleague</cite>
       </footer>
     </blockquote>
-  </section>
-
-  <!-- Photo -->
-  <section class="page-section">
-    <img src="/images/about-throne.jpg" alt="Martin sitting on a large sculpture of a throne" class="about-photo about-photo-wide" loading="lazy" />
   </section>
 
   <!-- Client list -->

@@ -112,6 +112,7 @@ fieldset {
      Derived from the existing site. H1 is 55px at desktop.
      The scale steps down proportionally for each heading level.
   */
+  --text-body-lg: 1.35rem;
   --text-body:  1.125rem;   /* 18px — base body size */
   --text-small: 0.875rem;   /* 14px — captions, dates, meta */
   --text-xs:    0.75rem;    /* 12px — category labels */

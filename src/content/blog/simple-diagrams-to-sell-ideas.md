@@ -126,4 +126,4 @@ Things in the same box are related more strongly than things outside the box. Th
 
 ### End of part one
 
-[Part two](https://www.mynameismartin.co.uk/blog/advanced-tips-better-diagrams) will come next week, in which I’ll elaborate on some of the above, show you how to bring it all together, and introduce some more advanced diagramming concepts.
+[Part two](/blog/advanced-tips-better-diagrams) will come next week, in which I’ll elaborate on some of the above, show you how to bring it all together, and introduce some more advanced diagramming concepts.

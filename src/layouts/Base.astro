@@ -7,7 +7,6 @@
   Open Graph / Twitter meta, canonical URL, and Astro View Transitions.
 */
 
-import { ViewTransitions } from 'astro:transitions';
 
 import '../styles/global.css';
 import '../styles/typography.css';
@@ -95,9 +94,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Astro View Transitions — enables smooth page-to-page animation -->
-    <ViewTransitions />
   </head>
 
   <body>

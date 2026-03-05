@@ -32,7 +32,7 @@ const work = defineCollection({
  * Both live in the same collection and can be filtered by category.
  */
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title:    z.string(),
     slug:     z.string(),
