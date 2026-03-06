@@ -547,7 +547,7 @@
 
 .hero-availability {
   padding-left: 50px;
-  background-image: url("images/asterix.svg");
+  background-image: url("/images/asterix.svg");
   background-repeat: no-repeat;
   background-size: 35px 35px;
   font-weight: 700;
