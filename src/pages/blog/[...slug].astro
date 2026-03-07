@@ -118,7 +118,7 @@ const isWeeknote = post.data.category === 'weeknote';
     into an ordered list appended to .prose. CSS handles show/hide.
   -->
   <script>
-    document.addEventListener('astro:page-load', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       const prose = document.querySelector('.blog-post-body .prose');
       if (!prose) return;
 
