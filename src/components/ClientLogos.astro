@@ -6,14 +6,18 @@
   Currently uses a placeholder block — swap in the real logo strip
   image when it's ready.
 */
+
+import { Image } from 'astro:assets';
+import clientLogos1 from '../assets/images/client-logos-1.jpg';
+import clientLogos2 from '../assets/images/client-logos-2.jpg';
 ---
 
 <section class="client-logos page-section full-bleed bg-white">
   <div class="full-bleed-inner">
     <h2 class="client-logos-heading text-center">Organisations I've worked with</h2>
     <div class="grid-2">
-      <img src="/images/client-logos-1.jpg" alt="Logos of various organisations including UK Ministry of Housing, Dropbox, Médecins Sans Frontières, Google, NHS England, and The King's Fund." class="client-logos-image" loading="lazy" />
-      <img src="/images/client-logos-2.jpg" alt="Logos of organisations including National Highways, Recycle, Joseph Rowntree Foundation, University of Oxford, WWF, RNIB, and others." class="client-logos-image" loading="lazy" />
+      <Image src={clientLogos1} alt="Logos of various organisations including UK Ministry of Housing, Dropbox, Médecins Sans Frontières, Google, NHS England, and The King's Fund." class="client-logos-image" width={1400} quality={80} format="webp" loading="lazy" decoding="async" />
+      <Image src={clientLogos2} alt="Logos of organisations including National Highways, Recycle, Joseph Rowntree Foundation, University of Oxford, WWF, RNIB, and others." class="client-logos-image" width={1400} quality={80} format="webp" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

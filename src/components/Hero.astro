@@ -6,12 +6,15 @@
   Displays the main heading, subheading, three service descriptions,
   availability notice, and a placeholder for a hero image.
 */
+
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/hero.jpg';
 ---
 
 <section class="hero full-bleed bg-white">
   <div class="full-bleed-inner">
     <div class="grid-4">
-      <img src="/images/hero.jpg" alt="Martin Wright" class="hero-image" />
+      <Image src={heroImage} alt="Martin Wright" class="hero-image" width={800} quality={80} format="webp" loading="eager" fetchpriority="high" />
       <div class="span-3">
       <!-- Main introduction -->
       <div class="hero-content">

@@ -9,6 +9,9 @@
 import Page from '../layouts/Page.astro';
 import CVTimeline from '../components/CVTimeline.astro';
 import ClientLogos from '../components/ClientLogos.astro';
+import { Image } from 'astro:assets';
+import aboutPortrait from '../assets/images/about-portrait.jpg';
+import aboutThrone from '../assets/images/about-throne.jpg';
 ---
 
 <Page title="About" description="Twenty years designing websites and services for government, healthcare, charity, and the private sector.">
@@ -21,7 +24,7 @@ import ClientLogos from '../components/ClientLogos.astro';
         <div class="about-intro-content span-2">
           <h1>Hello, I'm Martin Wright, a <span class="marker marker--a">friendly</span> designer doing work that matters</h1>
         </div>
-        <img src="/images/about-portrait.jpg" alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" />
+        <Image src={aboutPortrait} alt="Martin taking a selfie with his dog, wearing a red jacket outdoors" class="about-photo" width={800} quality={80} format="webp" loading="eager" />
       </div>
     </div>
   </section>
@@ -73,7 +76,7 @@ import ClientLogos from '../components/ClientLogos.astro';
 
         <p>I care about user-centred design deeply, but I'm equally interested in the conditions that allow it to succeed: how teams work, how decisions are made, how risk is handled, and how work survives contact with reality.</p>
       </div>
-      <img src="/images/about-throne.jpg" alt="Martin sitting on a large sculpture of a throne" class="about-photo pl-lg-8 pr-lg-4" loading="lazy" />
+      <Image src={aboutThrone} alt="Martin sitting on a large sculpture of a throne" class="about-photo pl-lg-8 pr-lg-4" width={800} quality={80} format="webp" loading="lazy" decoding="async" />
     </div>
   </section>
 
