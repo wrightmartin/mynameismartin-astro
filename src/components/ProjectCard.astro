@@ -15,11 +15,26 @@ interface Props {
 }
 
 const { title, slug, subtitle, thumbnail } = Astro.props;
+
+/* Build srcset paths from the thumbnail path, e.g.
+   /images/work/foo-thumb.webp → foo-thumb-400.webp, foo-thumb-800.webp */
+const thumb400 = thumbnail.replace('.webp', '-400.webp');
+const thumb800 = thumbnail.replace('.webp', '-800.webp');
+const srcset = `${thumb400} 400w, ${thumb800} 800w`;
 ---
 
 <a href={`/work/${slug}`} class="project-card">
   <div class="project-card-thumbnail">
-    <img src={thumbnail} alt={title} loading="lazy" decoding="async" />
+    <img
+      src={thumbnail}
+      srcset={srcset}
+      sizes="(max-width: 768px) 100vw, 400px"
+      width="800"
+      height="800"
+      alt={title}
+      loading="lazy"
+      decoding="async"
+    />
   </div>
   <h3 class="project-card-title">{title}</h3>
 </a>
