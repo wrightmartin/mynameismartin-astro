@@ -26,6 +26,7 @@
 
 /* margin-top */
 .mt-0 { margin-top: 0 !important; }
+.mt-2 { margin-top: var(--space-xs) !important; }
 .mt-4 { margin-top: var(--space-md) !important; }
 .mt-5 { margin-top: var(--space-lg) !important; }
 .mt-6 { margin-top: var(--space-xl) !important; }
