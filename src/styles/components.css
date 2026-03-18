@@ -582,7 +582,7 @@
 /* --- Hero heading fitted lines --- */
 
 .hero-heading {
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem);
   line-height: 0.87;
 }
 
@@ -609,9 +609,10 @@
   width: max-content; /* critical: measure natural text width */
 }
 
-/* Optional: keep the heading from becoming absurdly wide */
+/* Keep the heading from overflowing or becoming absurdly wide */
 .scaled-text {
   max-width: 100%;
+  overflow: hidden;
 }
 
 

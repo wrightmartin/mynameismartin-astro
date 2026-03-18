@@ -160,9 +160,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
       window.addEventListener("load", runScaledText);
 
-      // Resize (throttled)
+      // Resize (throttled, skip if width unchanged — prevents mobile Safari
+      // address-bar resize loop where height changes but width stays the same)
       let rt;
+      let lastWidth = window.innerWidth;
       window.addEventListener("resize", () => {
+        const w = window.innerWidth;
+        if (w === lastWidth) return;
+        lastWidth = w;
         clearTimeout(rt);
         rt = setTimeout(runScaledText, 100);
       });
