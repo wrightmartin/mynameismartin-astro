@@ -172,11 +172,73 @@
   margin-top: var(--space-sm);
 }
 
-.contact-email-link {
+.contact-form {
+  max-width: 65ch;
+}
+
+.form-field {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
   font-family: var(--font-heading);
-  font-size: var(--text-h3);
-  font-weight: 700;
-  word-break: break-all;
+  font-size: var(--text-small);
+  font-weight: 600;
+  margin-bottom: var(--space-2xs);
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--colour-text);
+  background-color: var(--colour-surface);
+  border: 1px solid var(--colour-border);
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgb(20, 106, 197);
+  box-shadow: 0 0 0 2px rgba(20, 106, 197, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+.form-submit {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  background-color: rgb(10, 39, 43);
+  border: 2px solid rgb(10, 39, 43);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.form-submit:hover {
+  opacity: 0.85;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 .contact-social-list {
