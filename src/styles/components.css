@@ -559,6 +559,7 @@
    ---------------------------------------------------------------------- */
 
 .hero-content {
+  container-type: inline-size;
   margin-bottom: var(--space-xl);
 }
 
@@ -582,16 +583,23 @@
 /* --- Hero heading fitted lines --- */
 
 .hero-heading {
-  font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem);
-  line-height: 0.87;
+  line-height: 0.95;
 }
 
-.hero-fit .fitline {
+.hero-heading .scaled-line {
   display: block;
-  white-space: nowrap;
-  transform-origin: left center;
-  will-change: transform;
-  width: max-content;
+}
+
+.hero-heading .scaled-line:nth-child(1) {
+  font-size: clamp(2rem, 11cqi, 6.3rem);
+}
+
+.hero-heading .scaled-line:nth-child(2) {
+  font-size: clamp(2rem, 14cqi, 10rem);
+}
+
+.hero-heading .scaled-line:nth-child(3) {
+  font-size: clamp(2rem, 13cqi, 9rem);
 }
 
 .hero-availability {
@@ -600,19 +608,6 @@
   background-repeat: no-repeat;
   background-size: 35px 35px;
   font-weight: 700;
-}
-
-/* Squarespace-style scaled lines (font-size only, no stretching) */
-.scaled-text .scaled-line {
-  display: block;
-  white-space: nowrap;
-  width: max-content; /* critical: measure natural text width */
-}
-
-/* Keep the heading from overflowing or becoming absurdly wide */
-.scaled-text {
-  max-width: 100%;
-  overflow: hidden;
 }
 
 
