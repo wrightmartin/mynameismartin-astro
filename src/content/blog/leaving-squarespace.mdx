@@ -52,15 +52,66 @@ The approach was like-for-like first. Improvements second:
 - Improve it afterwards
 
 
-To most people, the site will look identical. This was intentional. If I grew the scope of the rebuild beyond like-for-like I’d be back where I was two years ago. 
-
-Now I have a platform that is flexible, extensible, and ready to help deliver whatever comes next. 
+To most people, the site will look identical. This was intentional. If I grew the scope of the rebuild beyond like-for-like I’d be back where I was two years ago. Now I have a platform that is flexible, extensible, and ready to help deliver whatever comes next. 
 
 Squarespace and platforms like it package up publishing, hosting, design, and infrastructure into a single system. That convenience is attractive, and it’s valuable, but it comes at the cost of ownership and flexibility. 
 
 Like many, I’ve taken the decision to start moving away from these platforms<Sidenote id="2">I'm in the process of moving away from Google, that's a whole other story</Sidenote>. Moving from Squarespace is a touch more philosophical than others; returning to a version of the web where we own our content, and the means of publishing once more.
 
+## By the numbers
+
+Lighthouse is Google's tool for measuring website performance. I ran it against both versions of the site. The content is almost identical. The design is almost identical. The difference is entirely in how the site is built and delivered.
+
+<div class="table-wrap">
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Squarespace</th>
+				<th>Astro + Netlify</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Performance score (mobile)</td>
+				<td>63 / 100</td>
+				<td>98 / 100</td>
+			</tr>
+			<tr>
+				<td>Performance score (desktop)</td>
+				<td>74 / 100</td>
+				<td>99 / 100</td>
+			</tr>
+			<tr>
+				<td>Time to load on mobile</td>
+				<td>10.6 seconds</td>
+				<td>2.1 seconds</td>
+			</tr>
+			<tr>
+				<td>Total page weight</td>
+				<td>1,845 KB</td>
+				<td>274 KB</td>
+			</tr>
+			<tr>
+				<td>JavaScript shipped</td>
+				<td>991 KB (25 files)</td>
+				<td>4 KB (1 file)</td>
+			</tr>
+			<tr>
+				<td>Network requests</td>
+				<td>50</td>
+				<td>15</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+On a phone, the Squarespace version of this site took over ten seconds before the main content appeared. That's long enough for most people to leave. The Astro version takes about two seconds.
+
+The page weight dropped by 85%. Most of that difference is JavaScript. Squarespace shipped nearly a megabyte of scripts to render a site with no interactive features, a single simple form, no client-side routing. That code existed to power a platform I wasn't using.
+
+There's a less obvious consequence too. Every visit to a lighter site transfers less data. Multiply that across every visitor, every page, every month, and the difference in energy and bandwidth adds up. A smaller site is a more responsible one.
+
 ## Where I’ve landed
 
 Choosing Squarespace was about removing friction. Moving away is about regaining control. Now this site can be exactly what I need it to be next, rather than what someone else’s platform allows.
-

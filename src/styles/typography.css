@@ -206,3 +206,33 @@ time {
   max-width: 67ch;
   margin-inline: auto;
 }
+
+
+/* --- Tables ---
+   Clean, readable defaults. Horizontal scroll on small screens.
+   -------------------------------------------------------------------------- */
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--space-md);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-body);
+  text-align: left;
+}
+
+th,
+td {
+  padding: var(--space-xs) var(--space-sm);
+  border-bottom: 1px solid var(--colour-border);
+  vertical-align: top;
+}
+
+th {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
