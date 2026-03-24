@@ -90,15 +90,28 @@ fieldset {
      Warm, muted palette: dark teal-black text on cream with
      editorial-style links that feel part of the text.
   */
-  --colour-text:         rgb(10, 39, 43);     /* very dark teal-black */
-  --colour-text-light:   rgb(80, 100, 104);   /* lighter variant for secondary text */
-  --colour-background:   rgb(245, 240, 235);  /* warm off-white / cream */
-  --colour-surface:      rgb(255, 255, 255);  /* pure white for card surfaces */
-  --colour-accent:       rgb(10, 39, 43);     /* links match text colour */
-  --colour-accent-hover: rgb(10, 39, 43);     /* text stays the same; underline changes */
-  --colour-underline:    rgb(180, 160, 140);  /* warm muted underline at rest */
-  --colour-border:       rgb(220, 215, 210);  /* subtle warm grey for dividers */
-  --colour-focus:        rgb(20, 106, 197);   /* blue — reserved for focus rings only */
+
+  /* Base */
+  --color-text:            rgb(10, 39, 43);
+  --color-text-secondary:  rgb(80, 100, 104);
+  --color-bg:              rgb(245, 240, 235);
+  --color-surface:         rgb(255, 255, 255);
+  --color-border:          rgb(220, 215, 210);
+  --color-link:            rgb(10, 39, 43);
+  --color-link-underline:  rgb(180, 160, 140);
+  --color-focus:           rgb(20, 106, 197);
+  --color-focus-ring:      rgba(20, 106, 197, 0.15);
+  --color-selection:       rgb(39, 191, 209);
+  --color-selection-text:  rgb(255, 255, 255);
+
+  /* Emphasis (dark sections, footer) */
+  --color-emphasis-bg:             rgb(10, 39, 43);
+  --color-emphasis-text:           rgb(255, 255, 255);
+  --color-emphasis-text-muted:     rgba(255, 255, 255, 0.7);
+  --color-emphasis-text-subtle:    rgba(255, 255, 255, 0.5);
+  --color-emphasis-link:           rgb(255, 255, 255);
+  --color-emphasis-link-underline: rgba(255, 255, 255, 0.35);
+  --color-emphasis-border:         rgba(255, 255, 255, 0.15);
 
   /* --- Fonts ---
      Albert Sans replaces Aktiv Grotesk for headings.
@@ -156,8 +169,8 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-body);
   line-height: 1.7;
-  color: var(--colour-text);
-  background-color: var(--colour-background);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 
@@ -168,9 +181,9 @@ body {
    -------------------------------------------------------------------------- */
 
 a {
-  color: var(--colour-accent);
+  color: var(--color-link);
   text-decoration: underline;
-  text-decoration-color: var(--colour-underline);
+  text-decoration-color: var(--color-link-underline);
   text-decoration-thickness: 1px;
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.2em;
@@ -180,12 +193,12 @@ a {
 }
 
 a:hover {
-  text-decoration-color: var(--colour-accent-hover);
+  text-decoration-color: var(--color-link);
   text-decoration-thickness: 2px;
 }
 
 a:active {
-  color: var(--colour-text-light);
+  color: var(--color-text-secondary);
 }
 
 
@@ -195,7 +208,7 @@ a:active {
    -------------------------------------------------------------------------- */
 
 :focus-visible {
-  outline: 2px solid var(--colour-focus);
+  outline: 2px solid var(--color-focus);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -211,8 +224,8 @@ a:active {
    -------------------------------------------------------------------------- */
 
 ::selection {
-  background-color: rgb(39, 191, 209);
-  color: var(--colour-surface);
+  background-color: var(--color-selection);
+  color: var(--color-selection-text);
 }
 
 
@@ -222,6 +235,6 @@ a:active {
 
 hr {
   border: none;
-  border-top: 1px solid var(--colour-border);
+  border-top: 1px solid var(--color-border);
   margin: var(--space-xl) 0;
 }

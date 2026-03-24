@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-heading);
   font-weight: 800;
   line-height: 1.15;
-  color: var(--colour-text);
+  color: var(--color-text);
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
@@ -98,7 +98,7 @@ em {
 
 small {
   font-size: var(--text-small);
-  color: var(--colour-text-light);
+  color: var(--color-text-secondary);
 }
 
 .small {
@@ -111,7 +111,7 @@ small {
   line-height: 1.4;
   letter-spacing: -0.01em;
   max-width: 60ch;
-  color: var(--colour-text);
+  color: var(--color-text);
 }
 
 /* --- Lists ---
@@ -138,7 +138,7 @@ li {
 }
 
 li::marker {
-  color: var(--colour-text-light);
+  color: var(--color-text-secondary);
 }
 
 
@@ -166,7 +166,7 @@ blockquote p:last-child {
 code {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background-color: var(--colour-border);
+  background-color: var(--color-border);
   padding: 0.15em 0.4em;
   border-radius: 3px;
 }
@@ -175,8 +175,8 @@ pre {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   line-height: 1.6;
-  background-color: var(--colour-text);
-  color: var(--colour-background);
+  background-color: var(--color-text);
+  color: var(--color-bg);
   padding: var(--space-md);
   border-radius: 4px;
   overflow-x: auto;
@@ -198,7 +198,7 @@ pre code {
 time {
   font-family: var(--font-heading);
   font-size: var(--text-small);
-  color: var(--colour-text-light);
+  color: var(--color-text-secondary);
 }
 
 .text-center-narrow {
@@ -228,7 +228,7 @@ table {
 th,
 td {
   padding: var(--space-xs) var(--space-sm);
-  border-bottom: 1px solid var(--colour-border);
+  border-bottom: 1px solid var(--color-border);
   vertical-align: top;
 }
 

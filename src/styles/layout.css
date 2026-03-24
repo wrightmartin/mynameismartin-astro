@@ -172,7 +172,7 @@
 .prose figcaption {
   font-family: var(--font-heading);
   font-size: var(--text-small);
-  color: var(--colour-text-light);
+  color: var(--color-text-secondary);
   margin-top: var(--space-xs);
   text-align: center;
 }
@@ -184,7 +184,7 @@
    -------------------------------------------------------------------------- */
 
 .section-white {
-  background-color: var(--colour-surface);
+  background-color: var(--color-surface);
 }
 
 
@@ -208,60 +208,55 @@
 
 
 /* ==========================================================================
-   Inverted (Dark Background) Utility
+   Emphasis (Dark Background) Utility
    Flips a section to light-on-dark. Apply to any container to get
    a dark background with white text, links, and borders.
    Works on the footer, full-bleed sections, or any other block.
    ========================================================================== */
 
-.inverted,
-.bg-dark {
-  background-color: rgb(10, 39, 43);
-  color: rgb(255, 255, 255);
+.bg-emphasis {
+  background-color: var(--color-emphasis-bg);
+  color: var(--color-emphasis-text);
 }
 
-.inverted h1, .bg-dark h1,
-.inverted h2, .bg-dark h2,
-.inverted h3, .bg-dark h3,
-.inverted h4, .bg-dark h4,
-.inverted h5, .bg-dark h5,
-.inverted h6, .bg-dark h6,
-.inverted p,  .bg-dark p,
-.inverted li, .bg-dark li,
-.inverted span, .bg-dark span,
-.inverted figcaption, .bg-dark figcaption,
-.inverted blockquote, .bg-dark blockquote {
-  color: rgb(255, 255, 255);
+.bg-emphasis h1,
+.bg-emphasis h2,
+.bg-emphasis h3,
+.bg-emphasis h4,
+.bg-emphasis h5,
+.bg-emphasis h6,
+.bg-emphasis p,
+.bg-emphasis li,
+.bg-emphasis span,
+.bg-emphasis figcaption,
+.bg-emphasis blockquote {
+  color: var(--color-emphasis-text);
 }
 
-.inverted a,
-.bg-dark a {
-  color: rgb(255, 255, 255);
-  text-decoration-color: rgba(255, 255, 255, 0.35);
+.bg-emphasis a {
+  color: var(--color-emphasis-link);
+  text-decoration-color: var(--color-emphasis-link-underline);
 }
 
-.inverted a:hover,
-.bg-dark a:hover {
-  text-decoration-color: rgb(255, 255, 255);
+.bg-emphasis a:hover {
+  text-decoration-color: var(--color-emphasis-text);
 }
 
-.inverted a:active,
-.bg-dark a:active {
-  color: rgba(255, 255, 255, 0.7);
+.bg-emphasis a:active {
+  color: var(--color-emphasis-text-muted);
 }
 
-/* Subtler border colour for dividers inside dark sections */
-.inverted hr,    .bg-dark hr,
-.inverted .page-section + .page-section,
-.bg-dark .page-section + .page-section {
-  border-color: rgba(255, 255, 255, 0.15);
+/* Subtler border for dividers inside dark sections */
+.bg-emphasis hr,
+.bg-emphasis .page-section + .page-section {
+  border-color: var(--color-emphasis-border);
 }
 
 
 /* ==========================================================================
    Case Study Layout Utilities
    Reusable classes for structuring content inside case study markdown/MDX.
-   Used via raw HTML in markdown like <section class="full-bleed bg-dark">.
+   Used via raw HTML in markdown like <section class="full-bleed bg-emphasis">.
    ========================================================================== */
 
 
@@ -394,15 +389,15 @@
 
 /* --- Background Modifiers ---
    Combine with .full-bleed to add a background colour.
-   e.g. <section class="full-bleed bg-dark">
+   e.g. <section class="full-bleed bg-emphasis">
    -------------------------------------------------------------------------- */
 
-.bg-white {
-  background-color: rgb(255, 255, 255);
+.bg-surface {
+  background-color: var(--color-surface);
 }
 
-.bg-sand {
-  background-color: rgb(245, 240, 235);
+.bg-base {
+  background-color: var(--color-bg);
 }
 
 .bg-photo {
@@ -412,4 +407,4 @@
   padding-block: 6rem;  
 }
 
-/* .bg-dark shares rules with .inverted — defined together above. */
+/* .bg-emphasis rules are defined in the emphasis utility section above. */
