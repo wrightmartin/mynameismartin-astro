@@ -3,8 +3,8 @@
   Base Layout
   -----------
   The HTML shell shared by every page on the site.
-  Handles <head> meta, Google Fonts loading, global CSS imports,
-  Open Graph / Twitter meta, canonical URL, and Astro View Transitions.
+  Handles <head> meta, global CSS imports, Open Graph / Twitter meta,
+  canonical URL, and Astro View Transitions.
 */
 
 
@@ -84,18 +84,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       href="/blog/rss.xml"
     />
 
-    <!--
-      Google Fonts
-      Albert Sans — headings
-      PT Serif — body text
-      Preconnect first for faster loading, then load the stylesheet.
-    -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
   </head>
 
   <body>

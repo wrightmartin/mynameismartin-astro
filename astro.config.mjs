@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import rehypeImgOptimize from './plugins/rehype-img-optimize.mjs';
@@ -39,6 +39,33 @@ function remarkAutoImportSidenote() {
 export default defineConfig({
 
   site: 'https://www.mynameismartin.co.uk',
+
+  fonts: [
+    {
+      name: 'Albert Sans',
+      cssVariable: '--font-heading',
+      provider: fontProviders.google(),
+      weights: [400, 600, 700, 800],
+      styles: ['normal'],
+      fallbacks: ['system-ui', '-apple-system', 'sans-serif'],
+    },
+    {
+      name: 'PT Serif',
+      cssVariable: '--font-body',
+      provider: fontProviders.google(),
+      weights: [400, 700],
+      styles: ['normal', 'italic'],
+      fallbacks: ['Georgia', 'Times New Roman', 'serif'],
+    },
+  ],
+
+  security: {
+    csp: {
+      scriptDirective: {
+        resources: ["'self'", 'https://scripts.simpleanalyticscdn.com'],
+      },
+    },
+  },
 
   markdown: {
     rehypePlugins: [rehypeImgOptimize],

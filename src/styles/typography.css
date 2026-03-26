@@ -3,7 +3,7 @@
    Type scale, line heights, and text element styles.
    Matched to the existing mynameismartin.co.uk Squarespace site.
 
-   Fonts are loaded via <link> tags in Base.astro for best performance:
+   Fonts are loaded via Astro's built-in Fonts API (see astro.config.mjs):
    - Albert Sans (headings) — replaces Aktiv Grotesk from the Squarespace site
    - PT Serif (body text)
    ========================================================================== */

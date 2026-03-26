@@ -114,12 +114,11 @@ fieldset {
   --color-emphasis-border:         rgba(255, 255, 255, 0.15);
 
   /* --- Fonts ---
-     Albert Sans replaces Aktiv Grotesk for headings.
-     PT Serif for body text — loaded from Google Fonts in Base.astro.
+     Albert Sans (headings) and PT Serif (body) are configured in
+     astro.config.mjs via the built-in Fonts API, which generates
+     --font-heading and --font-body CSS variables automatically.
   */
-  --font-heading: 'Albert Sans', system-ui, -apple-system, sans-serif;
-  --font-body:    'PT Serif', Georgia, 'Times New Roman', serif;
-  --font-mono:    ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;
 
   /* --- Type Scale ---
      Derived from the existing site. H1 is 55px at desktop.
