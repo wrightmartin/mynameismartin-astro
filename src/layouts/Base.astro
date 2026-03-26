@@ -8,6 +8,7 @@
 */
 
 
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 import '../styles/typography.css';
 import '../styles/layout.css';
@@ -84,6 +85,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       href="/blog/rss.xml"
     />
 
+    <!-- Fonts (self-hosted via Astro Fonts API) -->
+    <Font cssVariable="--font-heading" preload />
+    <Font cssVariable="--font-body" preload />
   </head>
 
   <body>
