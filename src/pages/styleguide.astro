@@ -1,0 +1,668 @@
+---
+/*
+  Styleguide
+  ----------
+  Visual reference documenting the design system used on this site.
+  Renders actual tokens and components from the CSS and component library.
+*/
+
+import Page from '../layouts/Page.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PostCard from '../components/PostCard.astro';
+import CVTimeline from '../components/CVTimeline.astro';
+import Sidenote from '../components/Sidenote.astro';
+
+/* Colour tokens extracted from global.css :root */
+const baseColours = [
+  { token: '--color-text',            value: 'rgb(10, 39, 43)' },
+  { token: '--color-text-secondary',  value: 'rgb(80, 100, 104)' },
+  { token: '--color-bg',              value: 'rgb(245, 240, 235)' },
+  { token: '--color-surface',         value: 'rgb(255, 255, 255)' },
+  { token: '--color-border',          value: 'rgb(220, 215, 210)' },
+  { token: '--color-link',            value: 'rgb(10, 39, 43)' },
+  { token: '--color-link-underline',  value: 'rgb(180, 160, 140)' },
+  { token: '--color-focus',           value: 'rgb(20, 106, 197)' },
+  { token: '--color-focus-ring',      value: 'rgba(20, 106, 197, 0.15)' },
+  { token: '--color-selection',       value: 'rgb(39, 191, 209)' },
+  { token: '--color-selection-text',  value: 'rgb(255, 255, 255)' },
+];
+
+const emphasisColours = [
+  { token: '--color-emphasis-bg',             value: 'rgb(10, 39, 43)' },
+  { token: '--color-emphasis-text',           value: 'rgb(255, 255, 255)' },
+  { token: '--color-emphasis-text-muted',     value: 'rgba(255, 255, 255, 0.7)' },
+  { token: '--color-emphasis-text-subtle',    value: 'rgba(255, 255, 255, 0.5)' },
+  { token: '--color-emphasis-link',           value: 'rgb(255, 255, 255)' },
+  { token: '--color-emphasis-link-underline', value: 'rgba(255, 255, 255, 0.35)' },
+  { token: '--color-emphasis-border',         value: 'rgba(255, 255, 255, 0.15)' },
+];
+
+/* Spacing tokens extracted from global.css :root */
+const spacingTokens = [
+  { token: '--space-2xs', value: '0.25rem',  label: '4px' },
+  { token: '--space-xs',  value: '0.5rem',   label: '8px' },
+  { token: '--space-sm',  value: '1rem',     label: '16px' },
+  { token: '--space-md',  value: '1.5rem',   label: '24px' },
+  { token: '--space-lg',  value: '2.5rem',   label: '40px' },
+  { token: '--space-xl',  value: '4rem',     label: '64px' },
+  { token: '--space-2xl', value: '6rem',     label: '96px' },
+  { token: '--space-3xl', value: '8rem',     label: '128px' },
+];
+
+/* Sample date for PostCard */
+const sampleDate = new Date('2025-10-23');
+---
+
+<Page title="Styleguide" description="Visual reference for the mynameismartin design system.">
+
+  <section class="page-section">
+    <div class="page-header">
+      <h1>Styleguide</h1>
+      <p>A visual reference documenting the design tokens, typography, layout classes, and components used on this site.</p>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       COLOURS
+       ================================================================ -->
+
+  <section class="page-section pt-0">
+    <h2>Colours</h2>
+
+    <h3 class="mt-5">Base tokens</h3>
+    <div class="sg-swatches">
+      {baseColours.map((c) => (
+        <div class="sg-swatch">
+          <div class="sg-swatch-block" style={`background-color: var(${c.token})`}></div>
+          <code class="sg-swatch-token">{c.token}</code>
+          <span class="sg-swatch-value">{c.value}</span>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="mt-5">Emphasis tokens</h3>
+    <p class="mb-5">Used inside <code>.bg-emphasis</code> sections (dark background).</p>
+    <div class="sg-swatches">
+      {emphasisColours.map((c) => (
+        <div class="sg-swatch">
+          <div class="sg-swatch-block sg-swatch-block--emphasis" style={`background-color: var(${c.token})`}></div>
+          <code class="sg-swatch-token">{c.token}</code>
+          <span class="sg-swatch-value">{c.value}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       TYPOGRAPHY
+       ================================================================ -->
+
+  <section class="page-section">
+    <h2>Typography</h2>
+
+    <div class="sg-type-info mt-5 mb-5">
+      <p><strong>Headings:</strong> Albert Sans (var(--font-heading)) &middot; weight 800 &middot; line-height 1.15</p>
+      <p><strong>Body:</strong> PT Serif (var(--font-body)) &middot; weight 400 &middot; line-height 1.7</p>
+      <p><strong>Mono:</strong> var(--font-mono) &middot; ui-monospace, SFMono-Regular, Cascadia Code</p>
+    </div>
+
+    <h3>Heading scale</h3>
+    <div class="sg-type-scale mt-5">
+      <div class="sg-type-row">
+        <span class="sg-type-label">h1 &middot; var(--text-h1) &middot; clamp(2.75rem, 4.2vw, 4.5rem)</span>
+        <h1 class="mb-0">The quick brown fox</h1>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-label">h2 &middot; var(--text-h2) &middot; clamp(2rem, 3.2vw, 3.25rem)</span>
+        <h2 class="mb-0">The quick brown fox</h2>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-label">h3 &middot; var(--text-h3) &middot; clamp(1.5rem, 2.2vw, 2.25rem)</span>
+        <h3 class="mb-0">The quick brown fox</h3>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-label">h4 &middot; var(--text-h4) &middot; clamp(1.25rem, 1.5vw, 1.625rem)</span>
+        <h4 class="mb-0">The quick brown fox</h4>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-label">h5 &middot; var(--text-h5) &middot; 1.125rem</span>
+        <h5 class="mb-0">The quick brown fox</h5>
+      </div>
+      <div class="sg-type-row">
+        <span class="sg-type-label">h6 &middot; var(--text-h6) &middot; 1rem &middot; weight 600</span>
+        <h6 class="mb-0">The quick brown fox</h6>
+      </div>
+    </div>
+
+    <h3 class="mt-6">Body text</h3>
+    <p>This is standard body text set in PT Serif at var(--text-body) / 1.125rem (18px). The line-height is 1.7 for comfortable reading. Paragraphs have a bottom margin of var(--space-md).</p>
+    <p>A second paragraph to show vertical rhythm between blocks of body copy. The text colour is var(--color-text) on the cream background var(--color-bg).</p>
+
+    <h3 class="mt-6">Secondary text</h3>
+    <small>This is small / secondary text using var(--text-small) / 0.875rem in var(--color-text-secondary).</small>
+
+    <h3 class="mt-6">Links</h3>
+    <p>Links use an <a href="#">editorial underline style</a> — the text stays in var(--color-link) while the underline uses var(--color-link-underline). On hover, the underline thickens and darkens to match the text colour.</p>
+
+    <h3 class="mt-6">Blockquote</h3>
+    <blockquote>
+      <p>Blockquotes are set at 1.4rem with a left padding of var(--space-md). They are used for testimonials and pull-quotes throughout the site.</p>
+    </blockquote>
+
+    <h3 class="mt-6">Inline code</h3>
+    <p>Inline code like <code>var(--color-text)</code> uses var(--font-mono) at 0.9em with a light background.</p>
+
+    <h3 class="mt-6">Lists</h3>
+    <ul>
+      <li>Unordered list item one</li>
+      <li>Unordered list item two</li>
+      <li>Unordered list item three</li>
+    </ul>
+    <ol>
+      <li>Ordered list item one</li>
+      <li>Ordered list item two</li>
+      <li>Ordered list item three</li>
+    </ol>
+  </section>
+
+
+  <!-- ================================================================
+       SPACING
+       ================================================================ -->
+
+  <section class="page-section">
+    <h2>Spacing scale</h2>
+    <p class="mb-5">All spacing uses custom properties from the --space-* scale.</p>
+
+    <div class="sg-spacing-list">
+      {spacingTokens.map((s) => (
+        <div class="sg-spacing-row">
+          <code class="sg-spacing-token">{s.token}</code>
+          <span class="sg-spacing-label">{s.value} ({s.label})</span>
+          <div class="sg-spacing-bar" style={`width: var(${s.token})`}></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       LAYOUT CLASSES
+       ================================================================ -->
+
+  <section class="page-section">
+    <h2>Layout classes</h2>
+
+    <h3 class="mt-5">.prose</h3>
+    <p class="mb-2">Adds vertical rhythm between elements. Used for blog posts and case study content. Constrains width to var(--content-width) / 720px inside <code>.blog-post-body</code> and <code>.case-study-body</code>.</p>
+    <div class="sg-example">
+      <div class="prose">
+        <h4>A heading inside .prose</h4>
+        <p>Paragraph text with proper spacing. The .prose class adds margin-top between siblings, with larger gaps before h2 and h3 elements.</p>
+        <ul>
+          <li>List items inside prose get restored list styles</li>
+          <li>The global reset strips list-style, prose brings it back</li>
+        </ul>
+        <p>Another paragraph showing the vertical rhythm.</p>
+      </div>
+    </div>
+    <pre><code>&lt;div class="prose"&gt;
+  &lt;h4&gt;Heading&lt;/h4&gt;
+  &lt;p&gt;Body text...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3 class="mt-6">.full-bleed and .bg-surface</h3>
+    <p class="mb-2">Breaks out of the page container to span the full viewport width. Combine with background modifiers. Wrap inner content in <code>.full-bleed-inner</code> to re-align with the page grid.</p>
+  </section>
+
+  <section class="full-bleed bg-surface">
+    <div class="full-bleed-inner">
+      <p class="pt-4 pb-4">This section uses <code>.full-bleed .bg-surface</code> — it spans the full viewport width with a white background. Inner content is wrapped in <code>.full-bleed-inner</code>.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <pre><code>&lt;section class="full-bleed bg-surface"&gt;
+  &lt;div class="full-bleed-inner"&gt;
+    &lt;p&gt;Content here...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="mt-6">.full-bleed and .bg-emphasis</h3>
+    <p class="mb-2">Dark background variant. Flips text, links, and borders to light-on-dark colours automatically.</p>
+  </section>
+
+  <section class="full-bleed bg-emphasis">
+    <div class="full-bleed-inner">
+      <p class="pt-4 pb-4">This section uses <code>.full-bleed .bg-emphasis</code> — dark teal background with white text. Links like <a href="#">this one</a> adapt automatically.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <pre><code>&lt;section class="full-bleed bg-emphasis"&gt;
+  &lt;div class="full-bleed-inner"&gt;
+    &lt;p&gt;Light text on dark...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="mt-6">.grid-2</h3>
+    <p class="mb-2">Two equal columns at 768px+, single column below. Gap: var(--space-lg).</p>
+    <div class="sg-example">
+      <div class="grid-2">
+        <div class="sg-grid-cell">Column 1</div>
+        <div class="sg-grid-cell">Column 2</div>
+      </div>
+    </div>
+    <pre><code>&lt;div class="grid-2"&gt;
+  &lt;div&gt;Column 1&lt;/div&gt;
+  &lt;div&gt;Column 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3 class="mt-6">.grid-3</h3>
+    <p class="mb-2">Three equal columns at 768px+, single column below. Gap: var(--space-lg).</p>
+    <div class="sg-example">
+      <div class="grid-3">
+        <div class="sg-grid-cell">Column 1</div>
+        <div class="sg-grid-cell">Column 2</div>
+        <div class="sg-grid-cell">Column 3</div>
+      </div>
+    </div>
+    <pre><code>&lt;div class="grid-3"&gt;
+  &lt;div&gt;Column 1&lt;/div&gt;
+  &lt;div&gt;Column 2&lt;/div&gt;
+  &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3 class="mt-6">.media-text</h3>
+    <p class="mb-2">50/50 image and text side by side at 768px+, stacked below. Vertically centred.</p>
+    <div class="sg-example">
+      <div class="media-text">
+        <div class="sg-grid-cell sg-grid-cell--tall">Image area</div>
+        <div>
+          <h4>Heading alongside media</h4>
+          <p>Text content sits next to the image in a 50/50 split. Works with either source order.</p>
+        </div>
+      </div>
+    </div>
+    <pre><code>&lt;div class="media-text"&gt;
+  &lt;img src="..." alt="..." /&gt;
+  &lt;div&gt;
+    &lt;h4&gt;Heading&lt;/h4&gt;
+    &lt;p&gt;Text...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3 class="mt-6">.text-center-narrow</h3>
+    <p class="mb-2">Centres text with a max-width of 67ch. Used for introductory or quote sections.</p>
+    <div class="sg-example">
+      <p class="text-center-narrow">This paragraph is centred and constrained to a comfortable reading width using the .text-center-narrow utility class.</p>
+    </div>
+    <pre><code>&lt;p class="text-center-narrow"&gt;Centred text...&lt;/p&gt;</code></pre>
+  </section>
+
+
+  <!-- ================================================================
+       COMPONENTS
+       ================================================================ -->
+
+  <section class="page-section">
+    <h2>Components</h2>
+
+    <h3 class="mt-5">ProjectCard</h3>
+    <p class="mb-2">Linked card showing a project thumbnail and title. Used on the homepage and work listing. Thumbnail zooms on hover.</p>
+    <div class="sg-example">
+      <div class="card-grid" style="max-width: 800px">
+        <ProjectCard
+          title="Example project title"
+          slug="ecosystems"
+          subtitle="A short project subtitle"
+          thumbnail="/images/work/ecosystems-thumb.webp"
+        />
+        <ProjectCard
+          title="Another project"
+          slug="bsbi"
+          subtitle="Another subtitle"
+          thumbnail="/images/work/bsbi-thumb.webp"
+        />
+      </div>
+    </div>
+    <pre><code>&lt;ProjectCard
+  title="Project title"
+  slug="project-slug"
+  subtitle="Short description"
+  thumbnail="/images/work/thumb.webp"
+/&gt;</code></pre>
+
+    <h3 class="mt-6">PostCard</h3>
+    <p class="mb-2">Linked card showing a blog post with category, date, title, and excerpt. Title colour shifts on hover.</p>
+    <div class="sg-example">
+      <div class="blog-post-list">
+        <PostCard
+          title="Example blog post title"
+          slug="mapping-is-thinking"
+          date={sampleDate}
+          excerpt="A short excerpt that summarises the post content. Displayed in secondary text colour with a max-width of 60ch."
+          category="blog"
+        />
+        <PostCard
+          title="Example weeknote"
+          slug="003"
+          date={new Date('2024-10-20')}
+          excerpt="Weeknotes use the same card component with a different category label."
+          category="weeknote"
+        />
+      </div>
+    </div>
+    <pre><code>&lt;PostCard
+  title="Post title"
+  slug="post-slug"
+  date={'{new Date("2025-10-23")}'}
+  excerpt="Short excerpt..."
+  category="blog"
+/&gt;</code></pre>
+
+    <h3 class="mt-6">CVTimeline</h3>
+    <p class="mb-2">Vertical timeline with a left border and dot markers. Shows company, role, and dates. Optional descriptions and "Full CV" link.</p>
+    <div class="sg-example">
+      <CVTimeline showFullCVLink={false} />
+    </div>
+    <pre><code>&lt;CVTimeline showFullCVLink={'{true}'} showDescriptions={'{false}'} /&gt;</code></pre>
+
+    <h3 class="mt-6">Sidenote</h3>
+    <p class="mb-2">Tufte-style margin notes on large screens (1024px+), footnotes on small screens. Requires an <code>id</code> prop.</p>
+    <div class="sg-example sg-sidenote-example">
+      <div class="prose blog-post-body">
+        <p>This is a paragraph with a sidenote<Sidenote id="1">This is the content of the sidenote.</Sidenote> attached to it. The superscript number links to the note.</p>
+      </div>
+    </div>
+    <pre><code>&lt;p&gt;Text with a sidenote&lt;Sidenote id="1"&gt;Note content&lt;/Sidenote&gt;.&lt;/p&gt;</code></pre>
+
+    <h3 class="mt-6">Contact form</h3>
+    <p class="mb-2">Netlify-compatible form with label, input, textarea, and submit button. Uses <code>.form-field</code>, <code>.form-label</code>, <code>.form-input</code>, <code>.form-textarea</code>, and <code>.form-submit</code> classes.</p>
+    <div class="sg-example">
+      <form class="contact-form">
+        <div class="form-field">
+          <label for="sg-name" class="form-label">Name</label>
+          <input type="text" id="sg-name" class="form-input" placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label for="sg-email" class="form-label">Email</label>
+          <input type="email" id="sg-email" class="form-input" placeholder="you@example.com" />
+        </div>
+        <div class="form-field">
+          <label for="sg-message" class="form-label">Message</label>
+          <textarea id="sg-message" class="form-input form-textarea" rows="4" placeholder="Your message"></textarea>
+        </div>
+        <button type="button" class="form-submit">Send message</button>
+      </form>
+    </div>
+    <pre><code>&lt;form class="contact-form"&gt;
+  &lt;div class="form-field"&gt;
+    &lt;label class="form-label"&gt;Name&lt;/label&gt;
+    &lt;input class="form-input" /&gt;
+  &lt;/div&gt;
+  &lt;button class="form-submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+    <h3 class="mt-6">Buttons</h3>
+    <p class="mb-2">Solid and outline variants. Uses <code>.button</code> and <code>.button-outline</code>.</p>
+    <div class="sg-example sg-button-row">
+      <a href="#" class="button">Solid button</a>
+      <a href="#" class="button button-outline">Outline button</a>
+    </div>
+    <pre><code>&lt;a href="#" class="button"&gt;Solid button&lt;/a&gt;
+&lt;a href="#" class="button button-outline"&gt;Outline button&lt;/a&gt;</code></pre>
+  </section>
+
+
+  <!-- ================================================================
+       UTILITIES
+       ================================================================ -->
+
+  <section class="page-section">
+    <h2>Utilities</h2>
+
+    <h3 class="mt-5">Spacing utilities</h3>
+    <p class="mb-2">Bootstrap-style overrides using the spacing scale. Format: <code>.{'{m|p}'}{'{t|b|l|r|x|y}'}-{'{size}'}</code>. All use <code>!important</code>.</p>
+
+    <h4 class="mt-5">Margin</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.mt-0</code></td><td>margin-top</td><td>0</td></tr>
+        <tr><td><code>.mt-2</code></td><td>margin-top</td><td>--space-xs (8px)</td></tr>
+        <tr><td><code>.mt-4</code></td><td>margin-top</td><td>--space-md (24px)</td></tr>
+        <tr><td><code>.mt-5</code></td><td>margin-top</td><td>--space-lg (40px)</td></tr>
+        <tr><td><code>.mt-6</code></td><td>margin-top</td><td>--space-xl (64px)</td></tr>
+        <tr><td><code>.mt-8</code></td><td>margin-top</td><td>--space-3xl (128px)</td></tr>
+        <tr><td><code>.mb-0</code></td><td>margin-bottom</td><td>0</td></tr>
+        <tr><td><code>.mb-2</code></td><td>margin-bottom</td><td>--space-xs (8px)</td></tr>
+        <tr><td><code>.mb-5</code></td><td>margin-bottom</td><td>--space-lg (40px)</td></tr>
+        <tr><td><code>.mb-6</code></td><td>margin-bottom</td><td>--space-xl (64px)</td></tr>
+        <tr><td><code>.mb-7</code></td><td>margin-bottom</td><td>--space-2xl (96px)</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-5">Padding</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.pt-0</code></td><td>padding-top</td><td>0</td></tr>
+        <tr><td><code>.pt-1</code></td><td>padding-top</td><td>--space-2xs (4px)</td></tr>
+        <tr><td><code>.pt-4</code></td><td>padding-top</td><td>--space-md (24px)</td></tr>
+        <tr><td><code>.pb-0</code></td><td>padding-bottom</td><td>0</td></tr>
+        <tr><td><code>.pb-3</code></td><td>padding-bottom</td><td>--space-sm (16px)</td></tr>
+        <tr><td><code>.pb-4</code></td><td>padding-bottom</td><td>--space-md (24px)</td></tr>
+        <tr><td><code>.pl-4</code></td><td>padding-left</td><td>--space-md (24px)</td></tr>
+        <tr><td><code>.pl-5</code></td><td>padding-left</td><td>--space-lg (40px)</td></tr>
+        <tr><td><code>.px-2</code></td><td>padding-inline</td><td>--space-xs (8px)</td></tr>
+        <tr><td><code>.px-6</code></td><td>padding-inline</td><td>--space-xl (64px)</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-5">Responsive (1200px+)</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.mt-lg-4</code></td><td>margin-top</td><td>--space-md (24px)</td></tr>
+        <tr><td><code>.mt-lg-6</code></td><td>margin-top</td><td>--space-xl (64px)</td></tr>
+        <tr><td><code>.mt-lg-7</code></td><td>margin-top</td><td>--space-2xl (96px)</td></tr>
+        <tr><td><code>.mt-lg-8</code></td><td>margin-top</td><td>--space-3xl (128px)</td></tr>
+        <tr><td><code>.pl-lg-4</code></td><td>padding-left</td><td>--space-md (24px)</td></tr>
+        <tr><td><code>.pl-lg-6</code></td><td>padding-left</td><td>--space-xl (64px)</td></tr>
+        <tr><td><code>.pl-lg-8</code></td><td>padding-left</td><td>--space-3xl (128px)</td></tr>
+        <tr><td><code>.pr-lg-4</code></td><td>padding-right</td><td>--space-md (24px)</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-5">Alignment &amp; text</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.text-center</code></td><td>text-align: center</td></tr>
+        <tr><td><code>.align-items-start</code></td><td>align-items: flex-start</td></tr>
+        <tr><td><code>.align-items-center</code></td><td>align-items: center</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-5">Examples</h4>
+    <div class="sg-example">
+      <div class="sg-utility-demo mt-6">
+        <code>.mt-6</code> — this div has margin-top: var(--space-xl) / 64px
+      </div>
+      <div class="sg-utility-demo pl-5">
+        <code>.pl-5</code> — this div has padding-left: var(--space-lg) / 40px
+      </div>
+      <div class="sg-utility-demo px-6">
+        <code>.px-6</code> — this div has padding-inline: var(--space-xl) / 64px
+      </div>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  /* Styleguide-specific layout styles */
+
+  .sg-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .sg-swatch-block {
+    width: 100%;
+    height: 80px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+  }
+
+  .sg-swatch-block--emphasis {
+    border-color: var(--color-emphasis-bg);
+  }
+
+  .sg-swatch-token {
+    display: block;
+    font-size: var(--text-small);
+    margin-top: var(--space-xs);
+  }
+
+  .sg-swatch-value {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2xs);
+  }
+
+  .sg-type-info p {
+    margin-bottom: var(--space-xs);
+  }
+
+  .sg-type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .sg-type-row {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-md);
+  }
+
+  .sg-type-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .sg-spacing-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .sg-spacing-row {
+    display: grid;
+    grid-template-columns: 160px 140px 1fr;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .sg-spacing-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sg-spacing-token {
+    font-size: var(--text-small);
+  }
+
+  .sg-spacing-label {
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+  }
+
+  .sg-spacing-bar {
+    height: 24px;
+    background-color: var(--color-selection);
+    border-radius: 2px;
+    min-width: 4px;
+  }
+
+  .sg-example {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .sg-grid-cell {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+    text-align: center;
+  }
+
+  .sg-grid-cell--tall {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sg-button-row {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .sg-utility-demo {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 1024px) {
+    .sg-sidenote-example {
+      padding-right: 240px;
+    }
+  }
+</style>
