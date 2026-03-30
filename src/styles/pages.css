@@ -324,7 +324,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-text-secondary);
-  background-color: var(--color-border);
+  background-color: var(--color-tint);
   padding: 0.2em 0.6em;
   border-radius: 3px;
   margin-bottom: var(--space-sm);

@@ -103,6 +103,8 @@ fieldset {
   --color-focus-ring:      rgba(20, 106, 197, 0.15);
   --color-selection:       rgb(39, 191, 209);
   --color-selection-text:  rgb(255, 255, 255);
+  --color-code-bg:         rgba(10, 39, 43, 0.06);
+  --color-tint:            rgba(10, 39, 43, 0.06);
 
   /* Emphasis (dark sections, footer) */
   --color-emphasis-bg:             rgb(10, 39, 43);
@@ -112,6 +114,7 @@ fieldset {
   --color-emphasis-link:           rgb(255, 255, 255);
   --color-emphasis-link-underline: rgba(255, 255, 255, 0.35);
   --color-emphasis-border:         rgba(255, 255, 255, 0.15);
+  --color-emphasis-code-bg:        rgba(255, 255, 255, 0.12);
 
   /* --- Fonts ---
      Albert Sans (headings) and PT Serif (body) are configured in

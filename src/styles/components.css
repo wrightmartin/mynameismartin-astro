@@ -57,7 +57,7 @@
   aspect-ratio: 16/10;
   overflow: hidden;
   border-radius: 4px;
-  background-color: var(--color-border);
+  background-color: var(--color-tint);
   margin-bottom: var(--space-sm);
 }
 
