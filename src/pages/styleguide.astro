@@ -71,24 +71,24 @@ const sampleDate = new Date('2025-10-23');
     <h2>Colours</h2>
 
     <h3 class="mt-5">Base tokens</h3>
-    <div class="sg-swatches">
+    <div class="styleguide-swatches">
       {baseColours.map((c) => (
-        <div class="sg-swatch">
-          <div class="sg-swatch-block" style={`background-color: var(${c.token})`}></div>
-          <code class="sg-swatch-token">{c.token}</code>
-          <span class="sg-swatch-value">{c.value}</span>
+        <div class="styleguide-swatch">
+          <div class="styleguide-swatch-block" style={`background-color: var(${c.token})`}></div>
+          <code class="styleguide-swatch-token">{c.token}</code>
+          <span class="styleguide-swatch-value">{c.value}</span>
         </div>
       ))}
     </div>
 
     <h3 class="mt-5">Emphasis tokens</h3>
     <p class="mb-5">Used inside <code>.bg-emphasis</code> sections (dark background).</p>
-    <div class="sg-swatches">
+    <div class="styleguide-swatches">
       {emphasisColours.map((c) => (
-        <div class="sg-swatch">
-          <div class="sg-swatch-block sg-swatch-block--emphasis" style={`background-color: var(${c.token})`}></div>
-          <code class="sg-swatch-token">{c.token}</code>
-          <span class="sg-swatch-value">{c.value}</span>
+        <div class="styleguide-swatch">
+          <div class="styleguide-swatch-block styleguide-swatch-block--emphasis" style={`background-color: var(${c.token})`}></div>
+          <code class="styleguide-swatch-token">{c.token}</code>
+          <span class="styleguide-swatch-value">{c.value}</span>
         </div>
       ))}
     </div>
@@ -102,36 +102,36 @@ const sampleDate = new Date('2025-10-23');
   <section class="page-section">
     <h2>Typography</h2>
 
-    <div class="sg-type-info mt-5 mb-5">
+    <div class="styleguide-type-info mt-5 mb-5">
       <p><strong>Headings:</strong> Albert Sans (var(--font-heading)) &middot; weight 800 &middot; line-height 1.15</p>
       <p><strong>Body:</strong> PT Serif (var(--font-body)) &middot; weight 400 &middot; line-height 1.7</p>
       <p><strong>Mono:</strong> var(--font-mono) &middot; ui-monospace, SFMono-Regular, Cascadia Code</p>
     </div>
 
     <h3>Heading scale</h3>
-    <div class="sg-type-scale mt-5">
-      <div class="sg-type-row">
-        <span class="sg-type-label">h1 &middot; var(--text-h1) &middot; clamp(2.75rem, 4.2vw, 4.5rem)</span>
+    <div class="styleguide-type-scale mt-5">
+      <div class="styleguide-type-row">
+        <span class="styleguide-type-label">h1 &middot; var(--text-h1) &middot; clamp(2.75rem, 4.2vw, 4.5rem)</span>
         <h1 class="mb-0">The quick brown fox</h1>
       </div>
-      <div class="sg-type-row">
-        <span class="sg-type-label">h2 &middot; var(--text-h2) &middot; clamp(2rem, 3.2vw, 3.25rem)</span>
+      <div class="styleguide-type-row">
+        <span class="styleguide-type-label">h2 &middot; var(--text-h2) &middot; clamp(2rem, 3.2vw, 3.25rem)</span>
         <h2 class="mb-0">The quick brown fox</h2>
       </div>
-      <div class="sg-type-row">
-        <span class="sg-type-label">h3 &middot; var(--text-h3) &middot; clamp(1.5rem, 2.2vw, 2.25rem)</span>
+      <div class="styleguide-type-row">
+        <span class="styleguide-type-label">h3 &middot; var(--text-h3) &middot; clamp(1.5rem, 2.2vw, 2.25rem)</span>
         <h3 class="mb-0">The quick brown fox</h3>
       </div>
-      <div class="sg-type-row">
-        <span class="sg-type-label">h4 &middot; var(--text-h4) &middot; clamp(1.25rem, 1.5vw, 1.625rem)</span>
+      <div class="styleguide-type-row">
+        <span class="styleguide-type-label">h4 &middot; var(--text-h4) &middot; clamp(1.25rem, 1.5vw, 1.625rem)</span>
         <h4 class="mb-0">The quick brown fox</h4>
       </div>
-      <div class="sg-type-row">
-        <span class="sg-type-label">h5 &middot; var(--text-h5) &middot; 1.125rem</span>
+      <div class="styleguide-type-row">
+        <span class="styleguide-type-label">h5 &middot; var(--text-h5) &middot; 1.125rem</span>
         <h5 class="mb-0">The quick brown fox</h5>
       </div>
-      <div class="sg-type-row">
-        <span class="sg-type-label">h6 &middot; var(--text-h6) &middot; 1rem &middot; weight 600</span>
+      <div class="styleguide-type-row">
+        <span class="styleguide-type-label">h6 &middot; var(--text-h6) &middot; 1rem &middot; weight 600</span>
         <h6 class="mb-0">The quick brown fox</h6>
       </div>
     </div>
@@ -176,12 +176,12 @@ const sampleDate = new Date('2025-10-23');
     <h2>Spacing scale</h2>
     <p class="mb-5">All spacing uses custom properties from the --space-* scale.</p>
 
-    <div class="sg-spacing-list">
+    <div class="styleguide-spacing-list">
       {spacingTokens.map((s) => (
-        <div class="sg-spacing-row">
-          <code class="sg-spacing-token">{s.token}</code>
-          <span class="sg-spacing-label">{s.value} ({s.label})</span>
-          <div class="sg-spacing-bar" style={`width: var(${s.token})`}></div>
+        <div class="styleguide-spacing-row">
+          <code class="styleguide-spacing-token">{s.token}</code>
+          <span class="styleguide-spacing-label">{s.value} ({s.label})</span>
+          <div class="styleguide-spacing-bar" style={`width: var(${s.token})`}></div>
         </div>
       ))}
     </div>
@@ -197,7 +197,7 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-5">.prose</h3>
     <p class="mb-2">Adds vertical rhythm between elements. Used for blog posts and case study content. Constrains width to var(--content-width) / 720px inside <code>.blog-post-body</code> and <code>.case-study-body</code>.</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <div class="prose">
         <h4>A heading inside .prose</h4>
         <p>Paragraph text with proper spacing. The .prose class adds margin-top between siblings, with larger gaps before h2 and h3 elements.</p>
@@ -249,10 +249,10 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">.grid-2</h3>
     <p class="mb-2">Two equal columns at 768px+, single column below. Gap: var(--space-lg).</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <div class="grid-2">
-        <div class="sg-grid-cell">Column 1</div>
-        <div class="sg-grid-cell">Column 2</div>
+        <div class="styleguide-grid-cell">Column 1</div>
+        <div class="styleguide-grid-cell">Column 2</div>
       </div>
     </div>
     <pre><code>&lt;div class="grid-2"&gt;
@@ -262,11 +262,11 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">.grid-3</h3>
     <p class="mb-2">Three equal columns at 768px+, single column below. Gap: var(--space-lg).</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <div class="grid-3">
-        <div class="sg-grid-cell">Column 1</div>
-        <div class="sg-grid-cell">Column 2</div>
-        <div class="sg-grid-cell">Column 3</div>
+        <div class="styleguide-grid-cell">Column 1</div>
+        <div class="styleguide-grid-cell">Column 2</div>
+        <div class="styleguide-grid-cell">Column 3</div>
       </div>
     </div>
     <pre><code>&lt;div class="grid-3"&gt;
@@ -277,9 +277,9 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">.media-text</h3>
     <p class="mb-2">50/50 image and text side by side at 768px+, stacked below. Vertically centred.</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <div class="media-text">
-        <div class="sg-grid-cell sg-grid-cell--tall">Image area</div>
+        <div class="styleguide-grid-cell styleguide-grid-cell--tall">Image area</div>
         <div>
           <h4>Heading alongside media</h4>
           <p>Text content sits next to the image in a 50/50 split. Works with either source order.</p>
@@ -296,7 +296,7 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">.text-center-narrow</h3>
     <p class="mb-2">Centres text with a max-width of 67ch. Used for introductory or quote sections.</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <p class="text-center-narrow">This paragraph is centred and constrained to a comfortable reading width using the .text-center-narrow utility class.</p>
     </div>
     <pre><code>&lt;p class="text-center-narrow"&gt;Centred text...&lt;/p&gt;</code></pre>
@@ -312,8 +312,8 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-5">ProjectCard</h3>
     <p class="mb-2">Linked card showing a project thumbnail and title. Used on the homepage and work listing. Thumbnail zooms on hover.</p>
-    <div class="sg-example">
-      <div class="card-grid" style="max-width: 800px">
+    <div class="styleguide-example">
+      <div class="card-grid styleguide-card-grid">
         <ProjectCard
           title="Example project title"
           slug="ecosystems"
@@ -337,7 +337,7 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">PostCard</h3>
     <p class="mb-2">Linked card showing a blog post with category, date, title, and excerpt. Title colour shifts on hover.</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <div class="blog-post-list">
         <PostCard
           title="Example blog post title"
@@ -365,14 +365,14 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">CVTimeline</h3>
     <p class="mb-2">Vertical timeline with a left border and dot markers. Shows company, role, and dates. Optional descriptions and "Full CV" link.</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <CVTimeline showFullCVLink={false} />
     </div>
     <pre><code>&lt;CVTimeline showFullCVLink={'{true}'} showDescriptions={'{false}'} /&gt;</code></pre>
 
     <h3 class="mt-6">Sidenote</h3>
     <p class="mb-2">Tufte-style margin notes on large screens (1024px+), footnotes on small screens. Requires an <code>id</code> prop.</p>
-    <div class="sg-example sg-sidenote-example">
+    <div class="styleguide-example styleguide-sidenote-example">
       <div class="prose blog-post-body">
         <p>This is a paragraph with a sidenote<Sidenote id="1">This is the content of the sidenote.</Sidenote> attached to it. The superscript number links to the note.</p>
       </div>
@@ -381,19 +381,19 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">Contact form</h3>
     <p class="mb-2">Netlify-compatible form with label, input, textarea, and submit button. Uses <code>.form-field</code>, <code>.form-label</code>, <code>.form-input</code>, <code>.form-textarea</code>, and <code>.form-submit</code> classes.</p>
-    <div class="sg-example">
+    <div class="styleguide-example">
       <form class="contact-form">
         <div class="form-field">
-          <label for="sg-name" class="form-label">Name</label>
-          <input type="text" id="sg-name" class="form-input" placeholder="Your name" />
+          <label for="styleguide-name" class="form-label">Name</label>
+          <input type="text" id="styleguide-name" class="form-input" placeholder="Your name" />
         </div>
         <div class="form-field">
-          <label for="sg-email" class="form-label">Email</label>
-          <input type="email" id="sg-email" class="form-input" placeholder="you@example.com" />
+          <label for="styleguide-email" class="form-label">Email</label>
+          <input type="email" id="styleguide-email" class="form-input" placeholder="you@example.com" />
         </div>
         <div class="form-field">
-          <label for="sg-message" class="form-label">Message</label>
-          <textarea id="sg-message" class="form-input form-textarea" rows="4" placeholder="Your message"></textarea>
+          <label for="styleguide-message" class="form-label">Message</label>
+          <textarea id="styleguide-message" class="form-input form-textarea" rows="4" placeholder="Your message"></textarea>
         </div>
         <button type="button" class="form-submit">Send message</button>
       </form>
@@ -408,7 +408,7 @@ const sampleDate = new Date('2025-10-23');
 
     <h3 class="mt-6">Buttons</h3>
     <p class="mb-2">Solid and outline variants. Uses <code>.button</code> and <code>.button-outline</code>.</p>
-    <div class="sg-example sg-button-row">
+    <div class="styleguide-example styleguide-button-row">
       <a href="#" class="button">Solid button</a>
       <a href="#" class="button button-outline">Outline button</a>
     </div>
@@ -425,7 +425,7 @@ const sampleDate = new Date('2025-10-23');
     <h2>Utilities</h2>
 
     <h3 class="mt-5">Spacing utilities</h3>
-    <p class="mb-2">Bootstrap-style overrides using the spacing scale. Format: <code>.{'{m|p}'}{'{t|b|l|r|x|y}'}-{'{size}'}</code>. All use <code>!important</code>.</p>
+    <p class="mb-2">Bootstrap-style overrides using the spacing scale. Format: <code>.{'{m|p}'}{'{t|b|l|r|x|y}'}-{'{size}'}</code>. All use <code>!important</code>. Note: the site only includes spacing classes that are actually used, to keep file sizes low.</p>
 
     <h4 class="mt-5">Margin</h4>
     <table>
@@ -511,158 +511,17 @@ const sampleDate = new Date('2025-10-23');
     </table>
 
     <h4 class="mt-5">Examples</h4>
-    <div class="sg-example">
-      <div class="sg-utility-demo mt-6">
+    <div class="styleguide-example">
+      <div class="styleguide-utility-demo mt-6">
         <code>.mt-6</code> — this div has margin-top: var(--space-xl) / 64px
       </div>
-      <div class="sg-utility-demo pl-5">
+      <div class="styleguide-utility-demo pl-5">
         <code>.pl-5</code> — this div has padding-left: var(--space-lg) / 40px
       </div>
-      <div class="sg-utility-demo px-6">
+      <div class="styleguide-utility-demo px-6">
         <code>.px-6</code> — this div has padding-inline: var(--space-xl) / 64px
       </div>
     </div>
   </section>
 
 </Page>
-
-<style>
-  /* Styleguide-specific layout styles */
-
-  .sg-swatches {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: var(--space-md);
-  }
-
-  .sg-swatch-block {
-    width: 100%;
-    height: 80px;
-    border-radius: 4px;
-    border: 1px solid var(--color-border);
-  }
-
-  .sg-swatch-block--emphasis {
-    border-color: var(--color-emphasis-bg);
-  }
-
-  .sg-swatch-token {
-    display: block;
-    font-size: var(--text-small);
-    margin-top: var(--space-xs);
-  }
-
-  .sg-swatch-value {
-    display: block;
-    font-size: var(--text-xs);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-2xs);
-  }
-
-  .sg-type-info p {
-    margin-bottom: var(--space-xs);
-  }
-
-  .sg-type-scale {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .sg-type-row {
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: var(--space-md);
-  }
-
-  .sg-type-label {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--text-small);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-xs);
-  }
-
-  .sg-spacing-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .sg-spacing-row {
-    display: grid;
-    grid-template-columns: 160px 140px 1fr;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  @media (max-width: 768px) {
-    .sg-spacing-row {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .sg-spacing-token {
-    font-size: var(--text-small);
-  }
-
-  .sg-spacing-label {
-    font-size: var(--text-small);
-    color: var(--color-text-secondary);
-  }
-
-  .sg-spacing-bar {
-    height: 24px;
-    background-color: var(--color-selection);
-    border-radius: 2px;
-    min-width: 4px;
-  }
-
-  .sg-example {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: var(--space-lg);
-    margin-bottom: var(--space-md);
-  }
-
-  .sg-grid-cell {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: var(--space-md);
-    font-family: var(--font-heading);
-    font-size: var(--text-small);
-    color: var(--color-text-secondary);
-    text-align: center;
-  }
-
-  .sg-grid-cell--tall {
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .sg-button-row {
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .sg-utility-demo {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: var(--space-sm);
-    font-family: var(--font-heading);
-    font-size: var(--text-small);
-    color: var(--color-text-secondary);
-  }
-
-  @media (min-width: 1024px) {
-    .sg-sidenote-example {
-      padding-right: 240px;
-    }
-  }
-</style>

@@ -561,3 +561,150 @@
   font-weight: 700;
   line-height: 1.3;
 }
+
+
+/* ==========================================================================
+   Styleguide Page
+   ========================================================================== */
+
+.styleguide-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.styleguide-swatch-block {
+  width: 100%;
+  height: 80px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.styleguide-swatch-block--emphasis {
+  border-color: var(--color-emphasis-bg);
+}
+
+.styleguide-swatch-token {
+  display: block;
+  font-size: var(--text-small);
+  margin-top: var(--space-xs);
+}
+
+.styleguide-swatch-value {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2xs);
+}
+
+.styleguide-type-info p {
+  margin-bottom: var(--space-xs);
+}
+
+.styleguide-type-scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.styleguide-type-row {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-md);
+}
+
+.styleguide-type-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.styleguide-spacing-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.styleguide-spacing-row {
+  display: grid;
+  grid-template-columns: 160px 140px 1fr;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .styleguide-spacing-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.styleguide-spacing-token {
+  font-size: var(--text-small);
+}
+
+.styleguide-spacing-label {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+.styleguide-spacing-bar {
+  height: 24px;
+  background-color: var(--color-selection);
+  border-radius: 2px;
+  min-width: 4px;
+}
+
+.styleguide-example {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.styleguide-grid-cell {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-md);
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.styleguide-grid-cell--tall {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.styleguide-button-row {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.styleguide-utility-demo {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+.styleguide-card-grid {
+  max-width: 800px;
+}
+
+@media (min-width: 1024px) {
+  .styleguide-sidenote-example {
+    padding-right: 240px;
+  }
+}
