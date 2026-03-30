@@ -650,7 +650,7 @@
 
 .styleguide-spacing-bar {
   height: 24px;
-  background-color: var(--color-selection);
+  background-color: var(--color-focus);
   border-radius: 2px;
   min-width: 4px;
 }
@@ -708,3 +708,37 @@
     padding-right: 240px;
   }
 }
+
+/* Swatch background classes — one per colour token */
+.styleguide-swatch--text { background-color: var(--color-text); }
+.styleguide-swatch--text-secondary { background-color: var(--color-text-secondary); }
+.styleguide-swatch--bg { background-color: var(--color-bg); }
+.styleguide-swatch--surface { background-color: var(--color-surface); }
+.styleguide-swatch--border { background-color: var(--color-border); }
+.styleguide-swatch--link { background-color: var(--color-link); }
+.styleguide-swatch--link-underline { background-color: var(--color-link-underline); }
+.styleguide-swatch--focus { background-color: var(--color-focus); }
+.styleguide-swatch--focus-ring { background-color: var(--color-focus-ring); }
+.styleguide-swatch--selection { background-color: var(--color-selection); }
+.styleguide-swatch--selection-text { background-color: var(--color-selection-text); }
+.styleguide-swatch--code-bg { background-color: var(--color-code-bg); }
+.styleguide-swatch--tint { background-color: var(--color-tint); }
+.styleguide-swatch--marker { background-color: var(--color-marker); }
+.styleguide-swatch--emphasis-bg { background-color: var(--color-emphasis-bg); }
+.styleguide-swatch--emphasis-text { background-color: var(--color-emphasis-text); }
+.styleguide-swatch--emphasis-text-muted { background-color: var(--color-emphasis-text-muted); }
+.styleguide-swatch--emphasis-text-subtle { background-color: var(--color-emphasis-text-subtle); }
+.styleguide-swatch--emphasis-link { background-color: var(--color-emphasis-link); }
+.styleguide-swatch--emphasis-link-underline { background-color: var(--color-emphasis-link-underline); }
+.styleguide-swatch--emphasis-border { background-color: var(--color-emphasis-border); }
+.styleguide-swatch--emphasis-code-bg { background-color: var(--color-emphasis-code-bg); }
+
+/* Spacing bar width classes — one per spacing token */
+.styleguide-spacing-bar--2xs { width: var(--space-2xs); }
+.styleguide-spacing-bar--xs { width: var(--space-xs); }
+.styleguide-spacing-bar--sm { width: var(--space-sm); }
+.styleguide-spacing-bar--md { width: var(--space-md); }
+.styleguide-spacing-bar--lg { width: var(--space-lg); }
+.styleguide-spacing-bar--xl { width: var(--space-xl); }
+.styleguide-spacing-bar--2xl { width: var(--space-2xl); }
+.styleguide-spacing-bar--3xl { width: var(--space-3xl); }

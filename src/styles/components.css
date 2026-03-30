@@ -768,7 +768,9 @@
 
 /* ==========================================================================
    Marker
-   Red underlines. Wrap a word in <span class="marker">
+   Red underlines. Wrap a word in <span class="marker marker--a">
+   Colour is --color-marker / #ef3b3a, hardcoded in SVG data URIs below
+   because CSS variables cannot be used inside url() data URIs.
    ========================================================================== */
 
 

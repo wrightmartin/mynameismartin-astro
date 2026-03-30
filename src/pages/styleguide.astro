@@ -21,10 +21,13 @@ const baseColours = [
   { token: '--color-border',          value: 'rgb(220, 215, 210)' },
   { token: '--color-link',            value: 'rgb(10, 39, 43)' },
   { token: '--color-link-underline',  value: 'rgb(180, 160, 140)' },
-  { token: '--color-focus',           value: 'rgb(20, 106, 197)' },
-  { token: '--color-focus-ring',      value: 'rgba(20, 106, 197, 0.15)' },
-  { token: '--color-selection',       value: 'rgb(39, 191, 209)' },
+  { token: '--color-focus',           value: 'rgb(39, 191, 209)' },
+  { token: '--color-focus-ring',      value: 'rgba(39, 191, 209, 0.15)' },
+  { token: '--color-selection',       value: 'hsla(0, 81.46%, 59.8%, 1)' },
   { token: '--color-selection-text',  value: 'rgb(255, 255, 255)' },
+  { token: '--color-code-bg',         value: 'rgba(10, 39, 43, 0.06)' },
+  { token: '--color-tint',            value: 'rgba(10, 39, 43, 0.06)' },
+  { token: '--color-marker',          value: 'hsla(0, 81.46%, 59.8%, 1)' },
 ];
 
 const emphasisColours = [
@@ -35,6 +38,7 @@ const emphasisColours = [
   { token: '--color-emphasis-link',           value: 'rgb(255, 255, 255)' },
   { token: '--color-emphasis-link-underline', value: 'rgba(255, 255, 255, 0.35)' },
   { token: '--color-emphasis-border',         value: 'rgba(255, 255, 255, 0.15)' },
+  { token: '--color-emphasis-code-bg',       value: 'rgba(255, 255, 255, 0.12)' },
 ];
 
 /* Spacing tokens extracted from global.css :root */
@@ -74,7 +78,7 @@ const sampleDate = new Date('2025-10-23');
     <div class="styleguide-swatches">
       {baseColours.map((c) => (
         <div class="styleguide-swatch">
-          <div class="styleguide-swatch-block" style={`background-color: var(${c.token})`}></div>
+          <div class={`styleguide-swatch-block styleguide-swatch--${c.token.replace('--color-', '')}`}></div>
           <code class="styleguide-swatch-token">{c.token}</code>
           <span class="styleguide-swatch-value">{c.value}</span>
         </div>
@@ -86,7 +90,7 @@ const sampleDate = new Date('2025-10-23');
     <div class="styleguide-swatches">
       {emphasisColours.map((c) => (
         <div class="styleguide-swatch">
-          <div class="styleguide-swatch-block styleguide-swatch-block--emphasis" style={`background-color: var(${c.token})`}></div>
+          <div class={`styleguide-swatch-block styleguide-swatch-block--emphasis styleguide-swatch--${c.token.replace('--color-', '')}`}></div>
           <code class="styleguide-swatch-token">{c.token}</code>
           <span class="styleguide-swatch-value">{c.value}</span>
         </div>
@@ -169,6 +173,39 @@ const sampleDate = new Date('2025-10-23');
 
 
   <!-- ================================================================
+       MARKERS & UNDERLINES
+       ================================================================ -->
+
+  <section class="page-section">
+    <h2>Markers &amp; underlines</h2>
+    <p class="mb-5">Hand-drawn underline effect used on key words. The marker colour is <code>--color-marker</code> (<code>#ef3b3a</code>), rendered via inline SVG paths. Two shape variants exist.</p>
+
+    <h3 class="mt-5">Variant A <code>.marker--a</code></h3>
+    <p class="mb-2">Flatter top edge, heavier belly. Used on the hero heading and about page.</p>
+    <div class="styleguide-example">
+      <h2 class="mb-0">Hello, I'm <span class="marker marker--a">Martin</span></h2>
+    </div>
+    <div class="styleguide-example">
+      <p class="mb-0">This is body text with a <span class="marker marker--a">marked word</span> using variant A.</p>
+    </div>
+    <pre><code>&lt;span class="marker marker--a"&gt;Martin&lt;/span&gt;</code></pre>
+
+    <h3 class="mt-6">Variant B <code>.marker--b</code></h3>
+    <p class="mb-2">More wobble, slightly different end behaviour.</p>
+    <div class="styleguide-example">
+      <h2 class="mb-0">A heading with a <span class="marker marker--b">highlighted</span> word</h2>
+    </div>
+    <div class="styleguide-example">
+      <p class="mb-0">This is body text with a <span class="marker marker--b">marked word</span> using variant B.</p>
+    </div>
+    <pre><code>&lt;span class="marker marker--b"&gt;highlighted&lt;/span&gt;</code></pre>
+
+    <h3 class="mt-6">Usage notes</h3>
+    <p>Wrap the target word in a <code>&lt;span class="marker marker--a"&gt;</code> or <code>marker--b</code>. The base <code>.marker</code> class handles positioning; the variant class sets the SVG shape and fine-tuning. The underline colour (<code>#ef3b3a</code> / <code>--color-marker</code>) is baked into the SVG data URIs because CSS variables cannot be referenced inside <code>url()</code> data URIs.</p>
+  </section>
+
+
+  <!-- ================================================================
        SPACING
        ================================================================ -->
 
@@ -181,7 +218,7 @@ const sampleDate = new Date('2025-10-23');
         <div class="styleguide-spacing-row">
           <code class="styleguide-spacing-token">{s.token}</code>
           <span class="styleguide-spacing-label">{s.value} ({s.label})</span>
-          <div class="styleguide-spacing-bar" style={`width: var(${s.token})`}></div>
+          <div class={`styleguide-spacing-bar styleguide-spacing-bar--${s.token.replace('--space-', '')}`}></div>
         </div>
       ))}
     </div>

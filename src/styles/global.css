@@ -99,12 +99,13 @@ fieldset {
   --color-border:          rgb(220, 215, 210);
   --color-link:            rgb(10, 39, 43);
   --color-link-underline:  rgb(180, 160, 140);
-  --color-focus:           rgb(20, 106, 197);
-  --color-focus-ring:      rgba(20, 106, 197, 0.15);
-  --color-selection:       rgb(39, 191, 209);
+  --color-focus:           rgb(39, 191, 209);
+  --color-focus-ring:      rgba(39, 191, 209, 0.15);
+  --color-selection:       hsla(0, 81.46%, 59.8%, 1);
   --color-selection-text:  rgb(255, 255, 255);
   --color-code-bg:         rgba(10, 39, 43, 0.06);
   --color-tint:            rgba(10, 39, 43, 0.06);
+  --color-marker:          hsla(0, 81.46%, 59.8%, 1);
 
   /* Emphasis (dark sections, footer) */
   --color-emphasis-bg:             rgb(10, 39, 43);
