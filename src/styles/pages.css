@@ -562,6 +562,22 @@
   line-height: 1.3;
 }
 
+/* --- Case study: FixMyStreet --- */
+.case-study-fixmystreet-hero-bg {
+  background-image: url("/images/work/fixmystreet/fms-og_image.jpg");
+}
+
+/* --- Case study: Beneficial Ownership --- */
+.case-study-beneficial-ownership-hypothesis-img {
+  max-width: 150px;
+}
+
+/* --- Case study: Climate Assembly --- */
+.case-study-climate-assembly-hero-bg {
+  background-image: url("/images/work/climate-assembly/climate-change-attenborough.jpg");
+  min-height: 660px;
+}
+
 
 /* ==========================================================================
    Styleguide Page
