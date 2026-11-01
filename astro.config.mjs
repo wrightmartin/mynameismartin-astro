@@ -62,7 +62,7 @@ export default defineConfig({
   security: {
     csp: {
       scriptDirective: {
-        resources: ["'self'", 'https://scripts.simpleanalyticscdn.com'],
+        resources: ["'self'"],
       },
     },
   },
